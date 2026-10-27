@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Save Bhimashankar</title>
+<meta name="description" content="Bhimashankar — the cloud forest on the Sahyadri crest, home of the Shekru. A scroll story of its biodiversity, and a petition to stop 32,000 trees being felled next to it.">
+<meta property="og:title" content="भीमाशंकर वाचवा · Save Bhimashankar">
+<meta property="og:description" content="130 km² of Sahyadri cloud forest. One state animal. 32,000 trees in the way.">
+<meta property="og:image" content="../img/hero.jpg">
+<meta name="theme-color" content="#08120c">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Tiro+Devanagari+Marathi:ital@0;1&family=Mukta:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+<script type="module" src="../forest.js"></script>
+</head>
+<body>
+<canvas id="forest" aria-hidden="true"></canvas>
+<div class="grain" aria-hidden="true"></div>
+<div id="prog"><i></i></div>
+
+<header id="top">
+  <a class="brand" href="#hero"><span class="leaf">❦</span> Save Bhimashankar</a>
+  <nav>
+    <a href="#forest-ch">Forest</a><a href="#shekru">Shekru</a><a href="#life">Life</a><a href="#films">Films</a><a href="#cut">The cut</a>
+    <a class="lang" href="../">मराठी</a>
+    <a class="gh" href="https://github.com/prateekkanurkar" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="18" height="18"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
+    <a class="cta" href="#sign">Sign</a>
+  </nav>
+</header>
+
+<section id="hero" class="gl-zone" data-scene="hero">
+  <div class="hero-in">
+    <p class="kicker"><span class="pulse"></span> Live issue · October 2026</p>
+    <h1><span class="sm mr">भीमाशंकर वाचवा</span><span class="lg">Save <em>Bhimashankar</em></span></h1>
+    <p class="lede">A cloud forest on the crest of the Sahyadri, the birthplace of the Bhima river, the home of Maharashtra's state animal. And right next to it, <b>32,000 trees</b> marked to fall.</p>
+    <div class="hero-cta"><a class="btn solid" href="#sign">Sign the petition</a><a class="btn ghost" href="#forest-ch">Walk into the forest ↓</a></div>
+    <div class="hero-foot">
+      <div><b>130.78</b><span>km² sanctuary</span></div>
+      <div><b>1985</b><span>notified</span></div>
+      <div><b>1,142</b><span>flowering plants</span></div>
+      <div><b>32,000+</b><span>trees at stake</span></div>
+    </div>
+  </div>
+  <div class="scrollcue"><i></i>scroll to fly</div>
+</section>
+
+<div class="ribbon"><div class="track">
+  <span>शेकरू</span><b>✦</b><span>Sahyadri</span><b>✦</b><span>देवराई</span><b>✦</b><span>Western Ghats</span><b>✦</b><span>भीमा नदी</span><b>✦</b><span>Cloud forest</span><b>✦</b><span>काजवे</span><b>✦</b><span>Fireflies</span><b>✦</b><span>शेकरू</span><b>✦</b><span>Sahyadri</span><b>✦</b><span>देवराई</span><b>✦</b><span>Western Ghats</span><b>✦</b><span>भीमा नदी</span><b>✦</b><span>Cloud forest</span><b>✦</b><span>काजवे</span><b>✦</b><span>Fireflies</span><b>✦</b>
+</div></div>
+
+<section id="forest-ch" class="chap solid">
+  <div class="drone" data-par>
+    <img src="../img/hero2.jpg" alt="" class="kb kb-a">
+    <div class="ytbg" data-yt="ZCVe-rup3-g" data-start="12"></div>
+    <div class="drone-hud"><span>● REC</span><span>ALT ~1,000 m</span><span>19.07° N · 73.54° E</span></div>
+    <div class="drone-cap">
+      <p class="chapno">Chapter 01</p>
+      <h2>Where the <em>Bhima</em> begins</h2>
+      <a class="vcredit" href="https://www.youtube.com/watch?v=ZCVe-rup3-g" target="_blank" rel="noopener">▶ Aerial: “Bhimashankar Drone Video” by kelvin santarita, YouTube</a>
+    </div>
+  </div>
+  <div class="split">
+    <div class="txt reveal">
+      <p class="big">High on the crest of the Western Ghats, where the Deccan plateau suddenly falls away to the Konkan coast, there is a forest that makes its own weather.</p>
+      <p>For four months of monsoon, clouds sit <em>inside</em> the trees. Moss and orchids cover every branch. When the clouds lift, the Bhima river trickles out of these hills and begins a ~860-km journey east to the Krishna.</p>
+      <p>To protect this place, and the giant squirrel that lives in its canopy, the Government of Maharashtra notified the <b>Bhimashankar Wildlife Sanctuary on 10 October 1985</b>. It spreads across Ambegaon and Khed talukas of Pune district, reaching into Thane and Raigad.</p>
+      <p>At its heart stands the Bhimashankar temple, one of the twelve <b>Jyotirlingas</b>, so this forest was sacred to millions long before it was a "sanctuary" on a map.</p>
+    </div>
+    <div class="stack" data-par="0.12">
+      <figure class="ph tilt-l"><img src="../img/ghats.jpg" alt="" loading="lazy"><figcaption>The escarpment — the Deccan ends, the Konkan begins.</figcaption></figure>
+      <figure class="ph tilt-r"><img src="../img/temple.jpg" alt="" loading="lazy"><figcaption>Bhimashankar Jyotirlinga.</figcaption></figure>
+    </div>
+  </div>
+  <div class="factbar reveal">
+    <div><b>130.78 km²</b><span>protected area</span></div>
+    <div><b>Western Ghats</b><span>global biodiversity hotspot</span></div>
+    <div><b>9</b><span>tribal villages inside</span></div>
+    <div><b>14</b><span>sacred groves (devrai)</span></div>
+  </div>
+</section>
+
+<section id="shekru" class="chap solid">
+  <div class="shekru">
+    <div class="sq-img" data-par="-0.1"><img src="../img/shekru.jpg" alt="" class="kb kb-b"></div>
+    <div class="sq-txt reveal">
+      <p class="chapno">Chapter 02</p>
+      <h2>The reason it exists: <em>Shekru</em></h2>
+      <p class="mr-line">शेकरू — महाराष्ट्राचा राज्यप्राणी</p>
+      <p>The Indian giant squirrel (<i>Ratufa indica elphinstonei</i>) is a squirrel the size of a cat, nearly a metre from nose to the tip of its tail, rust and black and cream. It is Maharashtra's state animal, and this sanctuary was created for it.</p>
+      <p>A Shekru almost never touches the ground. It builds several leafy nests high in the canopy and leaps up to six metres between crowns. Its whole world is a <b>continuous roof of trees</b>.</p>
+      <div class="pull">Cut a gap in that roof and you don't just lose trees. You cut the squirrel's road.</div>
+      <div class="canopy-line" aria-hidden="true"><svg viewBox="0 0 600 90" preserveAspectRatio="none"><path class="cl" d="M0 60 C 40 20, 80 20, 120 50 S 200 15, 240 45 S 320 20, 360 50"/><path class="cl gap" d="M360 50 L 440 50"/><path class="cl" d="M440 50 C 480 20, 520 25, 560 50 S 590 40, 600 45"/><circle class="sq" r="6" cx="0" cy="60"/></svg><span>canopy highway · broken</span></div>
+      <button class="yt mini" data-id="wZCeWE-guHY"><img src="https://i.ytimg.com/vi/wZCeWE-guHY/hqdefault.jpg" alt="" loading="lazy"><span class="play"></span><span class="yt-t">A real Shekru filmed at Bhimashankar · Kaivalya_yatri</span></button>
+    </div>
+  </div>
+</section>
+
+<section id="numbers" class="chap solid dark">
+  <div class="numbers-bg" data-par="0.2"><img src="../img/monsoon1.jpg" alt="" loading="lazy"></div>
+  <div class="wrap">
+    <p class="chapno reveal">Chapter 03</p>
+    <h2 class="reveal">A small forest, <em>astonishingly</em> full</h2>
+    <p class="sub reveal">From a botanical survey published in the Journal of Threatened Taxa (2017), and sanctuary records.</p>
+    <div class="rings">
+      <div class="ring reveal" style="--p:1"><svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52"/></svg><b data-to="1142">0</b><span>flowering plant taxa recorded</span></div>
+      <div class="ring reveal" style="--p:.19"><svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52"/></svg><b data-to="217">0</b><span>found only in India</span></div>
+      <div class="ring reveal" style="--p:.05"><svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52"/></svg><b data-to="53">0</b><span>on IUCN threat lists</span></div>
+      <div class="ring reveal" style="--p:.6"><svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52"/></svg><b data-to="529" data-suf="+">0</b><span>animal species reported</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="life" class="hscroll">
+  <div class="hs-sticky">
+    <div class="hs-head"><p class="chapno">Chapter 04</p><h2>Who <em>lives</em> here</h2><p class="hint">keep scrolling →</p></div>
+    <div class="hs-track">
+      <article class="sp"><img src="../img/shekru.jpg" alt="" loading="lazy"><div class="sp-t"><i>Ratufa indica elphinstonei</i><h3>Shekru</h3><p>Giant squirrel. State animal. Lives its life in the canopy.</p></div></article>
+      <article class="sp"><img src="../img/hornbill.jpg" alt="" loading="lazy"><div class="sp-t"><i>Ocyceros griseus</i><h3>Malabar grey hornbill</h3><p>Found only in the Western Ghats. A fruit-eater that plants the forest as it flies.</p></div></article>
+      <article class="sp tall"><img src="../img/thrush.jpg" alt="" loading="lazy"><div class="sp-t"><i>Myophonus horsfieldii</i><h3>Malabar whistling thrush</h3><p>The "whistling schoolboy" — its human-like whistle carries along the forest streams.</p></div></article>
+      <article class="sp tall"><img src="../img/viper.jpg" alt="" loading="lazy"><div class="sp-t"><i>Bhimashankar</i><h3>Pit viper habitat</h3><p>Damp, mossy undergrowth where green pit vipers wait, perfectly still, for hours.</p></div></article>
+      <article class="sp"><img src="../img/mantis.jpg" alt="" loading="lazy"><div class="sp-t"><i>Mantodea</i><h3>Praying mantis</h3><p>Silhouetted against the sun, photographed inside the sanctuary.</p></div></article>
+      <article class="sp"><img src="../img/litsea.jpg" alt="" loading="lazy"><div class="sp-t"><i>Litsea josephii</i><h3>Laurel of the Ghats</h3><p>One of the 1,142 flowering plants recorded here, many found nowhere else.</p></div></article>
+      <article class="sp tall vid"><video src="../video/walk.mp4" poster="../video/walk.jpg" muted loop playsinline preload="none"></video><div class="sp-t"><i>Western Ghats · video</i><h3>Inside the forest</h3><p>A world hidden in every leaf — one footpath, countless lives.</p></div></article>
+      <article class="sp txtonly"><div class="sp-t"><i>Xantolis tomentosa</i><h3>Khombhal, the ancient climber</h3><p>A woody giant in the sanctuary was estimated in 1984 to be 800–1,000 years old. Older than most forts in the Sahyadri.</p></div></article>
+      <article class="sp txtonly glow"><div class="sp-t"><i>Bioluminescent fungi</i><h3>The forest that glows</h3><p>On monsoon nights, fungi on rotting wood glow green. Before the rains, millions of fireflies blink in sync.</p></div></article>
+      <article class="sp txtonly"><div class="sp-t"><i>And more</i><h3>Leopard · barking deer · mouse deer · pangolin · sambar · langur</h3><p>Mammals that need unbroken forest to move between feeding grounds and water.</p></div></article>
+    </div>
+  </div>
+</section>
+
+<section id="seasons" class="chap solid">
+  <div class="layers">
+    <video class="ly ly1" data-par="0.3" src="../video/ghats.mp4" poster="../video/ghats.jpg" muted loop playsinline autoplay preload="metadata"></video>
+    <div class="ly-txt reveal">
+      <p class="chapno">Chapter 05</p>
+      <h2>A forest that <em>breathes</em> in seasons</h2>
+    </div>
+    <span class="ly-credit">Western Ghats · video: Mathanprasath K, CC BY 4.0</span>
+  </div>
+  <div class="seasons">
+    <div class="season reveal"><img src="../img/sunset.jpg" alt="" loading="lazy"><div><b>May – June</b><h3>Fireflies</h3><p>Before the first rain, the forest floor lights up. Thousands of visitors come just for this.</p></div></div>
+    <div class="season reveal"><img src="../img/monsoon1.jpg" alt="" loading="lazy"><div><b>June – September</b><h3>Monsoon</h3><p>Heavy rain soaks the hills. Streams feed the Bhima to the east and the Konkan rivers to the west.</p></div></div>
+    <div class="season reveal"><img src="../img/sunrise1.jpg" alt="" loading="lazy"><div><b>October – February</b><h3>Cloud-sea</h3><p>Mornings above a sea of mist; the valleys fill with cloud and the ridges float.</p></div></div>
+    <div class="season reveal"><img src="../img/morning.jpg" alt="" loading="lazy"><div><b>March – May</b><h3>Dry season</h3><p>Leaves fall, fruits ripen, and every patch of water becomes a lifeline for wildlife.</p></div></div>
+  </div>
+</section>
+
+<section id="films" class="chap dark">
+  <div class="wrap">
+    <p class="chapno reveal">Films</p>
+    <h2 class="reveal">Bhimashankar <em>from the sky</em></h2>
+    <p class="sub reveal">Drone films and shorts, with thanks to the creators who filmed this forest. Videos play from YouTube.</p>
+    <div class="cinema reveal">
+      <div class="screen"><button class="yt big" data-id="2MoN9P4DWwQ"><img src="https://i.ytimg.com/vi/2MoN9P4DWwQ/hqdefault.jpg" alt="" loading="lazy"><span class="play"></span></button>
+        <div class="now"><b id="nowT">Bhimashankar Eco-Tourism Film</b><span id="nowC">Maharashtra Forest · 10:18</span></div></div>
+      <ul class="reel">
+        <li class="on" data-id="2MoN9P4DWwQ" data-c="Maharashtra Forest · 10:18"><img src="https://i.ytimg.com/vi/2MoN9P4DWwQ/mqdefault.jpg" alt="" loading="lazy"><div><b>Bhimashankar Eco-Tourism Film</b><span>Maharashtra Forest Dept (official)</span></div></li>
+        <li data-id="CWHjtzSfxr8" data-c="Daily life · 3:30"><img src="https://i.ytimg.com/vi/CWHjtzSfxr8/mqdefault.jpg" alt="" loading="lazy"><div><b>Bhimashankar in Shravan — the sacred forest</b><span>Daily life · drone</span></div></li>
+        <li data-id="ZCVe-rup3-g" data-c="kelvin santarita · 4:14"><img src="https://i.ytimg.com/vi/ZCVe-rup3-g/mqdefault.jpg" alt="" loading="lazy"><div><b>Bhimashankar Drone Video</b><span>kelvin santarita · 1440p</span></div></li>
+        <li data-id="K4hUbWnptSU" data-c="DocTourer Shashvat · 15:02"><img src="https://i.ytimg.com/vi/K4hUbWnptSU/mqdefault.jpg" alt="" loading="lazy"><div><b>Bhimashankar in the monsoon — drone views</b><span>DocTourer Shashvat</span></div></li>
+        <li data-id="NqrKVazt-VQ" data-c="Akash Thakur · 0:40"><img src="https://i.ytimg.com/vi/NqrKVazt-VQ/mqdefault.jpg" alt="" loading="lazy"><div><b>Bhimashankar trek — drone view</b><span>Akash Thakur</span></div></li>
+        <li data-id="KyfTtZYk8SE" data-c="Calm Wilderness · 20:57"><img src="https://i.ytimg.com/vi/KyfTtZYk8SE/mqdefault.jpg" alt="" loading="lazy"><div><b>Bhimashankar and the opera of fireflies</b><span>Calm Wilderness</span></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="people" class="chap solid dark">
+  <div class="split rev">
+    <div class="stack" data-par="0.1">
+      <figure class="ph tilt-r"><img src="../img/herbs.jpg" alt="" loading="lazy"><figcaption>Forest herbs, sold by local sellers near the temple.</figcaption></figure>
+      <figure class="ph tilt-l"><img src="../img/trek.jpg" alt="" loading="lazy"><figcaption>The old trek route from the Konkan side.</figcaption></figure>
+    </div>
+    <div class="txt reveal">
+      <p class="chapno">Chapter 06</p>
+      <h2>Kept by its <em>people</em></h2>
+      <p class="big">The forest is not empty. Mahadeo Koli and Katkari Adivasi families have lived in and around it for generations.</p>
+      <p>Their <b>devrai</b>, or sacred groves, are patches no one cuts because they belong to the deity. Fourteen of them survive inside the sanctuary, some holding the oldest trees in the landscape.</p>
+      <p>Women's self-help groups collect and sell <b>Bhimashankar honey</b>; villages like Yelavali run homestays for trekkers. The Katkari are recognised as a Particularly Vulnerable Tribal Group. Decisions about this forest are decisions about their lives.</p>
+    </div>
+  </div>
+</section>
+
+<section id="cut" class="gl-zone" data-scene="cut">
+  <div class="cut-sticky">
+    <div class="counter"><span class="lbl">trees marked to fall</span><b id="treeCount">0</b><div class="bar"><i id="treeBar"></i></div></div>
+    <div class="cut-steps">
+      <div class="cstep" data-i="0"><p class="chapno warn">Chapter 07 · The cut</p><h2>Now, <em>watch</em> the forest.</h2><p>This is a model of a forest plateau like the one at Saidongar, in Karjat taluka of Raigad district, on the western edge of the Bhimashankar landscape. Keep scrolling.</p></div>
+      <div class="cstep" data-i="1"><h3>3,000 MW</h3><p>Torrent Power has proposed a <b>pumped-storage hydroelectric project</b> here, estimated at ₹13,500–15,000 crore. Two reservoirs, tunnels through the hill, and water pumped up and let down to store power.</p></div>
+      <div class="cstep" data-i="2"><h3>32,000+ trees</h3><p>Permission has been sought to fell <b>more than 32,000 trees</b>, reported as about <b>233 hectares (~600 acres)</b> of forest. That's roughly <b>326 football pitches</b>.</p></div>
+      <div class="cstep" data-i="3"><h3>Water</h3><p>The site lies in the valley of the <b>Page river</b>, a tributary of the <b>Ulhas</b>, which supplies drinking water to towns downstream. Activists warn of water scarcity.</p></div>
+      <div class="cstep" data-i="4"><h3>Hillsides</h3><p>Tunnel blasting in these hills worries locals who remember <b>Malin (2014)</b> and <b>Irshalwadi (2023)</b>, villages buried by landslides in the Sahyadri.</p></div>
+      <div class="cstep" data-i="5"><h3>A sapling is not a forest</h3><p>Compensatory plantation has been promised. But a planted sapling is not a cloud forest with moss, fungi, hornbills and a continuous canopy that took centuries to grow.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="sides" class="chap solid">
+  <div class="wrap">
+    <p class="chapno reveal">Chapter 08</p>
+    <h2 class="reveal">What each side <em>says</em></h2>
+    <p class="sub reveal">Facts matter more than slogans. Here's what has been reported, 24–27 October 2026.</p>
+    <div class="versus">
+      <div class="vs-col reveal">
+        <h3>Concerned citizens & opposition</h3>
+        <ul>
+          <li>MLA Rohit Pawar alleged that over <b>32,000 trees across 233 ha</b> in the Saidongar forest, next to the sanctuary, are being felled. He says he isn't against the project, only its location.</li>
+          <li>The Ulhas River Conservation Action Committee and others approached the <b>National Green Tribunal</b>, asking for felling to stop.</li>
+          <li>They demand public release of the <b>EIA, wildlife-impact study and rehabilitation details</b>, plus a joint study of landslide and water risk.</li>
+          <li>Local residents and gram panchayats say they <b>weren't consulted</b>.</li>
+        </ul>
+      </div>
+      <div class="vs-mid"><span>vs</span></div>
+      <div class="vs-col reveal">
+        <h3>Forest Department & State</h3>
+        <ul>
+          <li>The Conservator of Forests, Pune, said <b>no illegal felling is taking place inside the sanctuary</b>.</li>
+          <li>The department says the project site lies <b>outside</b> the sanctuary boundary.</li>
+          <li>The Chief Minister said Torrent and the forest department will carry out plantation, called the project eco-friendly, and accused opponents of a "fake narrative".</li>
+          <li>The Adani Group denied any link, saying it has no project in the area.</li>
+        </ul>
+      </div>
+    </div>
+    <p class="note reveal">Our view: <b>a forest doesn't stop at a boundary line.</b> Wildlife, water and hillsides on the edge of a sanctuary are part of the same living system. Before a single more tree falls, the studies should be public and the people living there should be heard.</p>
+
+    <div class="news">
+      <h3 class="reveal">From the news <small>Marathi & Hindi news reports · YouTube</small></h3>
+      <div class="news-grid">
+        <div class="nv reveal"><button class="yt" data-id="t4bCEWLHDwY"><img src="https://i.ytimg.com/vi/t4bCEWLHDwY/hqdefault.jpg" alt="" loading="lazy"><span class="play"></span></button><b>Special report: "An axe on 600 acres of trees for Torrent Power"</b><span>Saam TV · 24 Oct</span></div>
+        <div class="nv reveal"><button class="yt" data-id="6E6q8THgkJI"><img src="https://i.ytimg.com/vi/6E6q8THgkJI/hqdefault.jpg" alt="" loading="lazy"><span class="play"></span></button><b>Karjat felling: a 100-year-old tree, a 4-foot stump, and graveyard silence</b><span>Mumbai Tak · 27 Oct</span></div>
+        <div class="nv reveal"><button class="yt" data-id="SI2Q5p_FITM"><img src="https://i.ytimg.com/vi/SI2Q5p_FITM/hqdefault.jpg" alt="" loading="lazy"><span class="play"></span></button><b>32,000 trees felled? What the Torrent project row is about</b><span>BolBhidu · 25 Oct</span></div>
+        <div class="nv reveal"><button class="yt" data-id="0Xq9BCb3YPA"><img src="https://i.ytimg.com/vi/0Xq9BCb3YPA/hqdefault.jpg" alt="" loading="lazy"><span class="play"></span></button><b>Trees felled in the Karjat–Bhimashankar forest for an energy-storage project?</b><span>ABP Majha · 24 Oct</span></div>
+        <div class="nv reveal"><button class="yt" data-id="J8mFckou3v0"><img src="https://i.ytimg.com/vi/J8mFckou3v0/hqdefault.jpg" alt="" loading="lazy"><span class="play"></span></button><b>Will Bhimashankar end? Why the felling? Development or destruction?</b><span>Lokmat · 26 Oct</span></div>
+        <div class="nv reveal"><button class="yt" data-id="pJl1hLT_tU0"><img src="https://i.ytimg.com/vi/pJl1hLT_tU0/hqdefault.jpg" alt="" loading="lazy"><span class="play"></span></button><b>Protest against felling 32,000 trees near Bhimashankar Sanctuary (Hindi)</b><span>Aaj Tak · 26 Oct</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sign" class="gl-zone" data-scene="sign">
+  <div class="sign-wrap">
+    <div class="demands">
+      <p class="chapno">The petition</p>
+      <h2>We ask the Government of Maharashtra to:</h2>
+      <ol>
+        <li><b>Pause all felling</b> at Saidongar until the National Green Tribunal has heard the case.</li>
+        <li><b>Publish</b> the Environmental Impact Assessment, wildlife-impact study and rehabilitation plan.</li>
+        <li>Order an independent <b>landslide and water-security study</b> for the Page–Ulhas valley.</li>
+        <li><b>Consult gram sabhas</b> and Adivasi communities, as the Forest Rights Act requires.</li>
+        <li><b>Consider alternative sites</b> that don't sacrifice old forest next to a sanctuary.</li>
+      </ol>
+    </div>
+    <form id="petition" class="card" autocomplete="on">
+      <h3>Add your name</h3>
+      <label>Full name<input name="name" required maxlength="80" placeholder="Your name"></label>
+      <div class="row"><label>City<input name="city" required maxlength="60" placeholder="Pune"></label><label>Email <small>(optional)</small><input name="email" type="email" maxlength="120" placeholder="you@example.com"></label></div>
+      <label>Why Bhimashankar matters to you <small>(optional)</small><textarea name="why" rows="3" maxlength="400" placeholder="I trekked here as a kid…"></textarea></label>
+      <button class="btn solid wide" type="submit">Sign &amp; save the forest</button>
+      <p class="fine">Signing opens the official petition page if one is linked, otherwise a ready-to-send letter. Nothing is stored on this site.</p>
+      <div class="done" hidden>
+        <p class="tick">✓</p>
+        <h3>Thank you, <span id="sName"></span>.</h3>
+        <p>Now make it count: send the letter and share the story.</p>
+        <div class="share">
+          <a id="shMail" class="btn solid" href="#">Email the letter</a>
+          <button type="button" id="shCopy" class="btn ghost">Copy letter</button>
+          <a id="shWa" class="btn ghost" target="_blank" rel="noopener" href="#">WhatsApp</a>
+          <a id="shX" class="btn ghost" target="_blank" rel="noopener" href="#">Post on X</a>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="big" aria-hidden="true"><span>भीमाशंकर</span></div>
+  <div class="foot-grid">
+    <div>
+      <h4>Sources</h4>
+      <ul class="src">
+        <li><a href="https://www.punekarnews.in/pune-forest-department-denies-illegal-tree-felling-in-bhimashankar-sanctuary-amid-rohit-pawars-allegations/" target="_blank" rel="noopener">Punekar News — Forest Dept denies illegal felling (24 Oct 2026)</a></li>
+        <li><a href="https://marathi.freepressjournal.in/maharashtra/karjat-bhimashankar-32000-trees-cutting-torrent-power-project-ngt-ulhas-river-conservation" target="_blank" rel="noopener">नवशक्ती — भीमाशंकर वृक्षतोडीविरोधात हरित लवादाकडे धाव (27 Oct 2026)</a></li>
+        <li><a href="https://www.esakal.com/maharashtra/bhimashankar-sanctuary-tree-cutting-torrent-power-project-forest-department-clarification-spb94" target="_blank" rel="noopener">सकाळ — वनविभागाचं स्पष्टीकरण (26 Oct 2026)</a></li>
+        <li><a href="https://agrowon.esakal.com/agro-special/karjat-bhimashankar-tree-cutting-conflict-rat16" target="_blank" rel="noopener">ॲग्रोवन — कर्जत-भीमाशंकर वृक्षतोड वाद (27 Oct 2026)</a></li>
+        <li><a href="https://telanganatoday.com/adani-group-refutes-social-media-claims-over-alleged-tree-felling-near-bhimashankar-temple" target="_blank" rel="noopener">Telangana Today — Adani Group statement</a></li>
+        <li><a href="https://www.threatenedtaxa.org/index.php/JoTT/article/view/3074" target="_blank" rel="noopener">Journal of Threatened Taxa — Floristic diversity of Bhimashankar WLS (2017)</a></li>
+        <li><a href="https://kalpavriksh.org/our-work/conservation-livelihoods/bhimashankar/" target="_blank" rel="noopener">Kalpavriksh — Bhimashankar conservation &amp; livelihoods</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Bhimashankar_Wildlife_Sanctuary" target="_blank" rel="noopener">Wikipedia — Bhimashankar Wildlife Sanctuary</a></li>
+      </ul>
+      <p class="disc">A citizen-made page. Tree counts and areas are as reported in the news and by petitioners; they have not been independently verified. The 3D forest is an illustration, not a map of the site. YouTube videos belong to their creators.</p>
+    </div>
+    <div>
+      <h4>Photographs & video</h4>
+      <ul class="credits" id="credits"></ul>
+      <div class="love">Made with <span>♥</span> for the Sahyadri by <a href="https://github.com/prateekkanurkar" target="_blank" rel="noopener">Prateek Kanurkar</a></div>
+      <a class="btn ghost" href="#hero">Back to the canopy ↑</a>
+    </div>
+  </div>
+</footer>
+
+<script src="../app.js"></script>
+</body>
+</html>
