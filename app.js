@@ -68,13 +68,21 @@ function countUp(el) {
   const step = now => { const k = clamp((now - t0) / 1800); el.textContent = fmt(Math.round(to * (1 - Math.pow(1 - k, 3)))) + (k === 1 ? suf : ""); if (k < 1) requestAnimationFrame(step); };
   requestAnimationFrame(step);
 }
-const io = new IntersectionObserver(es => es.forEach(e => {
-  if (!e.isIntersecting) return;
-  e.target.classList.add("in");
-  const b = e.target.querySelector("[data-to]"); if (b) countUp(b);
-  io.unobserve(e.target);
-}), { threshold: 0.2 });
-$$(".reveal").forEach(el => io.observe(el));
+function reveal(el) {
+  if (el.classList.contains("in")) return;
+  el.classList.add("in");
+  const b = el.querySelector("[data-to]"); if (b) countUp(b);
+  io.unobserve(el);
+}
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) reveal(e.target); }), { threshold: 0, rootMargin: "0px 0px -8% 0px" });
+let pending = $$(".reveal");
+pending.forEach(el => io.observe(el));
+// safety net: anything already scrolled to (fast scroll, menu jump) is shown even if the observer missed it
+function sweep() {
+  if (!pending.length) return;
+  const vh = innerHeight;
+  pending = pending.filter(el => { if (el.getBoundingClientRect().top < vh) { reveal(el); return false; } return !el.classList.contains("in"); });
+}
 
 /* ---------- scroll engine ---------- */
 const prog = $("#prog i"), hdr = $("#top");
@@ -94,6 +102,7 @@ function local(el) { // 0 at section top hitting viewport top, 1 when its bottom
 
 function onScroll() {
   const y = scrollY, vh = innerHeight, max = document.documentElement.scrollHeight - vh;
+  sweep();
   prog.style.width = (y / max * 100).toFixed(2) + "%";
   hdr.classList.toggle("solid", y > 60);
   document.body.classList.toggle("past-hero", y > vh * 0.3);
