@@ -244,7 +244,7 @@ window.tsReady = () => window.turnstile.render(tsBox, {
 });
 document.head.append(Object.assign(document.createElement("script"), { src: "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=tsReady", async: true }));
 const errBox = $(".form-err", form), submitBtn = $("button[type=submit]", form);
-function showSigns(n) { if (!n) return; $$("[data-signs]").forEach(b => b.textContent = fmt(n)); $$(".visits.signs").forEach(v => v.hidden = false); }
+function showSigns(n) { if (typeof n !== "number") return; $$("[data-signs]").forEach(b => b.textContent = fmt(n)); $$(".visits.signs").forEach(v => v.hidden = false); }
 fetch(COUNTER_URL + "/signs").then(r => r.json()).then(j => showSigns(j.count)).catch(() => {});
 
 form.addEventListener("submit", async e => {
@@ -368,7 +368,7 @@ const COUNTER = COUNTER_URL;
     const r = await fetch(COUNTER + (seen || local ? "/count" : "/hit"), { method: seen || local ? "GET" : "POST" });
     const { count } = await r.json();
     if (!seen && !local) try { localStorage.setItem("sb_seen", "1"); } catch {}
-    if (!count) return;
+    if (typeof count !== "number") return;
     $$("[data-visits]").forEach(b => {
       const t0 = performance.now();
       const step = now => { const k = clamp((now - t0) / 1600); b.textContent = fmt(Math.round(count * (1 - Math.pow(1 - k, 3)))); if (k < 1) requestAnimationFrame(step); };

@@ -751,3 +751,4 @@ html[lang=en] .m-lbl{font-family:var(--sans)}
 .form-err[hidden]{display:none}
 .btn:disabled{opacity:.6;cursor:wait}
 .love b{color:var(--leaf);font-family:var(--mr);font-weight:400}
+.visits.foot-v{display:flex;width:max-content;margin:0 0 18px}.visits.foot-v[hidden]{display:none}
