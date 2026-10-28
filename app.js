@@ -52,6 +52,7 @@ const prog = $("#prog i"), hdr = $("#top");
 const pars = $$("[data-par]"), heroIn = $(".hero-in");
 const hs = $("#life"), track = $(".hs-track");
 const zones = $$(".gl-zone");
+const mbar = $(".mbar");
 const steps = $$(".cstep"), count = $("#treeCount"), bar = $("#treeBar");
 const TREES = 32000;
 let lastStep = -1;
@@ -83,7 +84,12 @@ function onScroll() {
   heroIn.style.transform = `translateY(${(-ht * 120).toFixed(1)}px)`;
   heroIn.style.filter = `blur(${(ht * 10).toFixed(1)}px)`;
 
-  // horizontal species reel
+  // bottom "sign" bar on phones: show after the hero, hide once the form is on screen
+  const sr = $("#sign").getBoundingClientRect();
+  mbar?.classList.toggle("show", y > vh * 0.9 && sr.top > vh * 0.6);
+
+  // horizontal species reel (phones swipe it natively instead)
+  if (innerWidth < 861) { track.style.transform = ""; } else {
   const hp = local(hs);
   const dist = track.scrollWidth - innerWidth + 40;
   track.style.transform = `translate3d(${(-hp * dist).toFixed(1)}px,0,0)`;
@@ -92,6 +98,7 @@ function onScroll() {
     const r = sp.getBoundingClientRect(); const c = (r.left + r.width / 2) / innerWidth - 0.5;
     img.style.objectPosition = `${50 + c * 30}% 50%`;
   });
+  }
 
   // which 3D scene is on screen?
   let active = null, best = 0;
@@ -168,12 +175,12 @@ Subject: Pause tree felling at Saidongar (Karjat) next to Bhimashankar Wildlife 
 
 Respected Sir/Madam,
 
-More than 32,000 trees across about 233 hectares at Saidongar, Karjat taluka, Raigad, are reportedly marked for felling for a 3,000 MW pumped-storage hydropower project. This forest borders the Bhimashankar Wildlife Sanctuary, home of Maharashtra's state animal, the Shekru, and feeds the Page and Ulhas rivers.
+More than 32,000 trees across about 233 hectares at Saidongar, Karjat taluka, Raigad, are reportedly marked for felling for a 3,000 MW pumped-storage hydropower project. This forest borders the Bhimashankar Wildlife Sanctuary, home of Maharashtra's state animal, the Shekru, and feeds the Pej and Ulhas rivers.
 
 I request the Government to:
 1. Pause all felling until the National Green Tribunal hears the matter.
 2. Publish the Environmental Impact Assessment, wildlife-impact study and rehabilitation plan.
-3. Order an independent landslide and water-security study for the Page–Ulhas valley.
+3. Order an independent landslide and water-security study for the Pej–Ulhas valley.
 4. Consult gram sabhas and Adivasi communities as required under the Forest Rights Act.
 5. Consider alternative sites that do not sacrifice old forest next to a sanctuary.
 ${d.why ? `\nWhy this matters to me: ${d.why}\n` : ""}

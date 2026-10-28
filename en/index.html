@@ -14,6 +14,9 @@
 <link rel="stylesheet" href="../style.css">
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
 <script type="module" src="../forest.js"></script>
+<script type="module" src="../shekru3d.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js" defer></script>
+<script src="../issue.js" defer></script>
 </head>
 <body>
 <canvas id="forest" aria-hidden="true"></canvas>
@@ -23,8 +26,8 @@
 <header id="top">
   <a class="brand" href="#hero"><span class="leaf">❦</span> Save Bhimashankar</a>
   <nav>
-    <a href="#forest-ch">Forest</a><a href="#shekru">Shekru</a><a href="#life">Life</a><a href="#films">Films</a><a href="#cut">The cut</a>
-    <a class="lang" href="../">मराठी</a>
+    <a class="nl" href="#brief">In brief</a><a class="nl" href="#shekru">Shekru</a><a class="nl" href="#life">Life</a><a class="nl" href="#issue">The issue</a><a class="nl" href="#films">Films</a>
+    <span class="lsw" role="group" aria-label="Language"><a href="../" lang="mr">मराठी</a><a href="./" lang="en" class="on" aria-current="page">English</a></span>
     <a class="gh" href="https://github.com/KanurkarPrateek" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 16 16" width="18" height="18"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></a>
     <a class="cta" href="#sign">Sign</a>
   </nav>
@@ -49,6 +52,20 @@
 <div class="ribbon"><div class="track">
   <span>शेकरू</span><b>✦</b><span>Sahyadri</span><b>✦</b><span>देवराई</span><b>✦</b><span>Western Ghats</span><b>✦</b><span>भीमा नदी</span><b>✦</b><span>Cloud forest</span><b>✦</b><span>काजवे</span><b>✦</b><span>Fireflies</span><b>✦</b><span>शेकरू</span><b>✦</b><span>Sahyadri</span><b>✦</b><span>देवराई</span><b>✦</b><span>Western Ghats</span><b>✦</b><span>भीमा नदी</span><b>✦</b><span>Cloud forest</span><b>✦</b><span>काजवे</span><b>✦</b><span>Fireflies</span><b>✦</b>
 </div></div>
+
+<section id="brief" class="chap solid">
+  <div class="wrap">
+    <p class="chapno reveal">In brief · 30 seconds</p>
+    <h2 class="reveal">What is <em>happening</em>?</h2>
+    <div class="brief">
+      <article class="bc reveal"><span class="bi">🌳</span><h3>What</h3><p>At Saidongar in Karjat taluka, on the western edge of Bhimashankar sanctuary, <b>32,000+ trees</b> on about 233 ha are reportedly being felled for a <b>3,000 MW pumped-storage power project</b>.</p></article>
+      <article class="bc reveal"><span class="bi">💧</span><h3>Why it matters</h3><p>This forest is <b>the Shekru's canopy</b>, the catchment of the <b>Pej and Ulhas</b> rivers, and it holds landslide-prone Sahyadri slopes together. Adivasi villages live here.</p></article>
+      <article class="bc reveal"><span class="bi">⚖️</span><h3>The dispute</h3><p><b>Government:</b> the site is outside the sanctuary, the project is green, trees will be planted. <b>Citizens:</b> a forest doesn't stop at a line — publish the studies, hear the people first. The case is going to the <b>Green Tribunal</b>.</p></article>
+      <article class="bc act reveal"><span class="bi">✍️</span><h3>What you can do</h3><p>Sign the petition, send the ready-made letter to the government, and share this story on WhatsApp.</p><a class="btn solid" href="#sign">Sign now →</a></article>
+    </div>
+    <a class="more reveal" href="#issue">Understand it in detail: map, project, FAQ ↓</a>
+  </div>
+</section>
 
 <section id="forest-ch" class="chap solid">
   <div class="drone" data-par>
@@ -83,15 +100,32 @@
 
 <section id="shekru" class="chap solid">
   <div class="shekru">
-    <div class="sq-img" data-par="-0.1"><img src="../img/shekru.jpg" alt="" class="kb kb-b"></div>
-    <div class="sq-txt reveal">
+    <div class="sq-head reveal">
       <p class="chapno">Chapter 02</p>
       <h2>The reason it exists: <em>Shekru</em></h2>
       <p class="mr-line">शेकरू — महाराष्ट्राचा राज्यप्राणी</p>
+    </div>
+    <div class="sq-stage">
+      <div id="shekru3d" class="s3d">
+        <canvas aria-label="3D model of a Shekru"></canvas>
+        <div class="s3d-load"><img src="../img/shekru.jpg" alt=""></div>
+        <button class="hs" data-at="tail" data-off="0,-1.7,-0.5" data-t="Tail" data-p="A bushy tail as long as its body (~60 cm): the rudder for 6-metre leaps, and a blanket when it sleeps."><i>1</i></button>
+        <button class="hs" data-at="back" data-off="0,1.0,-0.2" data-t="Maroon coat" data-p="The northern Sahyadri form, <i>elphinstonei</i>: deep maroon-black back, cream belly. Nearly 1 m nose to tail, about 2 kg."><i>2</i></button>
+        <button class="hs" data-at="hand" data-off="0,-0.3,0.05" data-t="Hands & diet" data-p="Fruit, seeds, flowers, young leaves, bark. It eats holding food in its hands, and spreads seeds that grow new forest."><i>3</i></button>
+        <button class="hs" data-at="head" data-off="0.2,0.42,-0.05" data-t="Alert eyes & ears" data-p="Always watching for eagles and leopards. In danger it calls loudly or flattens against the trunk. It builds several leafy nests high in the trees."><i>4</i></button>
+        <div class="hs-card" role="status"><b></b><p></p><small>tap to close</small></div>
+        <div class="s3d-ui">
+          <span class="s3d-hint">↔ drag to turn · tap the dots</span>
+          <button class="leap btn solid">Watch it leap ↷</button>
+        </div>
+      </div>
+    </div>
+    <div class="sq-txt reveal">
       <p>The Indian giant squirrel (<i>Ratufa indica elphinstonei</i>) is a squirrel the size of a cat, nearly a metre from nose to the tip of its tail, rust and black and cream. It is Maharashtra's state animal, and this sanctuary was created for it.</p>
       <p>A Shekru almost never touches the ground. It builds several leafy nests high in the canopy and leaps up to six metres between crowns. Its whole world is a <b>continuous roof of trees</b>.</p>
       <div class="pull">Cut a gap in that roof and you don't just lose trees. You cut the squirrel's road.</div>
       <div class="canopy-line" aria-hidden="true"><svg viewBox="0 0 600 90" preserveAspectRatio="none"><path class="cl" d="M0 60 C 40 20, 80 20, 120 50 S 200 15, 240 45 S 320 20, 360 50"/><path class="cl gap" d="M360 50 L 440 50"/><path class="cl" d="M440 50 C 480 20, 520 25, 560 50 S 590 40, 600 45"/><circle class="sq" r="6" cx="0" cy="60"/></svg><span>canopy highway · broken</span></div>
+      <div class="sq-gal" id="sqGal"></div>
       <button class="yt mini" data-id="wZCeWE-guHY"><img src="https://i.ytimg.com/vi/wZCeWE-guHY/hqdefault.jpg" alt="" loading="lazy"><span class="play"></span><span class="yt-t">A real Shekru filmed at Bhimashankar · Kaivalya_yatri</span></button>
     </div>
   </div>
@@ -108,6 +142,19 @@
       <div class="ring reveal" style="--p:.19"><svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52"/></svg><b data-to="217">0</b><span>found only in India</span></div>
       <div class="ring reveal" style="--p:.05"><svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52"/></svg><b data-to="53">0</b><span>on IUCN threat lists</span></div>
       <div class="ring reveal" style="--p:.6"><svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52"/></svg><b data-to="529" data-suf="+">0</b><span>animal species reported</span></div>
+    </div>
+    <div class="flora reveal">
+      <div class="flora-txt">
+        <h3>1,142 dots. Each one is a plant species.</h3>
+        <p>Every flowering plant recorded at Bhimashankar is one dot here. Tap the buttons to see how many grow only in India, and how many are threatened.</p>
+        <div class="chips" role="group">
+          <button class="chip on" data-k="all">All 1,142</button>
+          <button class="chip gold" data-k="end">Only in India · 217</button>
+          <button class="chip ember" data-k="thr">Threatened · 53</button>
+        </div>
+        <p class="tiny">Source: Journal of Threatened Taxa (2017). Dot layout is illustrative.</p>
+      </div>
+      <svg id="plants" viewBox="0 0 400 400" role="img" aria-label="Chart of 1,142 plant species"></svg>
     </div>
   </div>
 </section>
@@ -183,14 +230,122 @@
   </div>
 </section>
 
+<section id="issue" class="chap solid">
+  <div class="wrap">
+    <p class="chapno warn reveal">Chapter 07 · Understand the issue</p>
+    <h2 class="reveal">What <em>exactly</em> is the issue?</h2>
+    <p class="sub reveal">Slogans aside, in five steps: where, what, how much, when, and your questions.</p>
+
+    <div class="ib reveal">
+      <div class="ib-h"><span class="ib-n">1</span><h3>Where is it?</h3></div>
+      <div class="ib-grid">
+        <div class="mapbox"><svg id="map" viewBox="0 0 400 420" role="img" aria-label="Map of Mumbai, Pune, Karjat and Bhimashankar"></svg></div>
+        <div class="ib-txt">
+          <p>Bhimashankar sanctuary sits on the Sahyadri crest (Pune district). To its <b>west, the escarpment drops straight into the Konkan</b>, into Karjat taluka of Raigad. The project site is on these slopes, around the villages of <b>Potal, Saidongar and Ambot</b>.</p>
+          <p>The <b>Pej river</b>, which rises here, joins the Ulhas. The Ulhas flows on towards Badlapur, Kalyan and Thane, a drinking-water source for millions.</p>
+          <p class="tiny">Schematic map; the project location is approximate.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ib reveal">
+      <div class="ib-h"><span class="ib-n">2</span><h3>What is the project?</h3></div>
+      <div class="ib-grid">
+        <div class="psp" id="psp" data-mode="store">
+          <svg viewBox="0 0 400 260" role="img" aria-label="How a pumped-storage plant works">
+            <defs>
+              <linearGradient id="pspSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="sky1"/><stop offset="1" class="sky2"/></linearGradient>
+              <linearGradient id="pspHill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2f5a2a"/><stop offset="1" stop-color="#14261a"/></linearGradient>
+              <linearGradient id="pspW" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6fc3e8"/><stop offset="1" stop-color="#1e6c95"/></linearGradient>
+              <clipPath id="upClip"><path d="M38 71 L150 71 L141 92 L47 92 Z"/></clipPath>
+              <clipPath id="loClip"><path d="M292 214 L386 214 L386 244 L300 244 Z"/></clipPath>
+            </defs>
+            <rect width="400" height="260" fill="url(#pspSky)"/>
+            <g class="sunmoon"><circle class="sun" cx="350" cy="40" r="15"/><path class="moon" d="M352 26 a16 16 0 1 0 12 26 a13 13 0 1 1 -12 -26z"/></g>
+            <path d="M0 260 L0 72 L176 70 C206 72 214 110 238 150 C262 190 282 207 300 212 L400 214 L400 260 Z" fill="url(#pspHill)"/>
+            <g class="trees">
+              <path d="M8 70 l6 -16 l6 16z M20 71 l7 -19 l7 19z M152 70 l7 -18 l7 18z M164 70 l6 -15 l6 15z M178 76 l6 -16 l6 16z M190 88 l6 -16 l6 16z M200 101 l6 -15 l6 15z M212 118 l6 -15 l6 15z"/>
+            </g>
+            <g class="stumps"><rect x="58" y="66" width="4" height="5"/><rect x="88" y="66" width="4" height="5"/><rect x="118" y="66" width="4" height="5"/></g>
+            <g clip-path="url(#upClip)"><rect class="lvl up" x="38" y="71" width="112" height="22" fill="url(#pspW)"/></g>
+            <path d="M38 71 L150 71 L141 92 L47 92 Z" fill="none" stroke="#cfe6ff" stroke-opacity=".5"/>
+            <path class="pipe" d="M138 90 C170 125 232 172 292 208"/>
+            <path class="flow" d="M138 90 C170 125 232 172 292 208"/>
+            <rect x="284" y="198" width="22" height="16" rx="2" fill="#dfe7d6"/><path d="M289 198 l6 -7 l6 7z" fill="#dfe7d6"/>
+            <path class="bolt" d="M296 176 l-6 10 h6 l-4 10 l11 -13 h-6 l4 -7z"/>
+            <g clip-path="url(#loClip)"><rect class="lvl lo" x="292" y="214" width="96" height="32" fill="url(#pspW)"/></g>
+            <rect x="384" y="206" width="8" height="40" fill="#9aa59a"/>
+            <text class="lb" x="94" y="108" text-anchor="middle">Upper reservoir</text>
+            <text class="lb sm" x="94" y="120" text-anchor="middle">(on the hilltop, where forest was)</text>
+            <text class="lb" x="340" y="256" text-anchor="middle">Lower reservoir · Pej river</text>
+            <text class="lb sm" x="232" y="214" text-anchor="end">tunnel → turbine</text>
+          </svg>
+          <div class="psp-ctl" role="tablist">
+            <button class="on" data-m="store">☀️ Day: water up</button>
+            <button data-m="gen">🌙 Evening: power</button>
+          </div>
+        </div>
+        <div class="ib-txt">
+          <p>The project is a giant <b>"water battery"</b>. In the day, when solar power is plentiful, water is <b>pumped</b> from a lower dam up to a lake on the hilltop. In the evening, when demand peaks, the same water is let down through <b>turbines to make power</b>.</p>
+          <p>Central Electricity Authority records place the <b>upper reservoir on a table-top hill in the Pej catchment</b> and the <b>lower reservoir across the Pej river</b>. The forested hilltop goes under water, and the river goes behind a dam.</p>
+          <p class="callout">Storage like this matters for clean energy. <b>The question is not the technology, it's the location.</b> Felling old forest at a sanctuary's edge for green energy is a contradiction.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ib reveal">
+      <div class="ib-h"><span class="ib-n">3</span><h3>How big is 233 hectares?</h3></div>
+      <div class="ib-grid">
+        <div class="areabox"><svg id="area" viewBox="0 0 400 400" role="img" aria-label="Comparing 233 hectares"></svg><div class="area-num"><b id="areaN">३२६</b><span id="areaL"></span></div></div>
+        <div class="ib-txt">
+          <p>The big square is the <b>233 hectares of forest</b> reported in the news. Pick something to see how many fit inside:</p>
+          <div class="chips" role="group" id="areaChips">
+            <button class="chip on" data-u="0.714" data-l="football pitches">⚽ Football pitch</button>
+            <button class="chip" data-u="11.3" data-l="Shivaji Parks (Dadar)">🏏 Shivaji Park</button>
+            <button class="chip" data-u="0.0016" data-l="trees · one dot = 10 trees" data-trees="1">🌳 32,000 trees</button>
+          </div>
+          <p>The project's environmental-clearance filings give a total project area of <b>377 hectares</b>.</p>
+          <p class="tiny">Football pitch ≈ 0.71 ha, Shivaji Park ≈ 11.3 ha.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ib reveal">
+      <div class="ib-h"><span class="ib-n">4</span><h3>What has happened so far</h3></div>
+      <ol class="tl">
+        <li><time>10 Oct 1985</time><p><b>Bhimashankar Wildlife Sanctuary</b> notified to protect the Shekru.</p></li>
+        <li><time>Sep 2024</time><p>Maharashtra signs an <b>MoU</b> with Torrent Power for pumped storage.</p></li>
+        <li><time>Aug 2025</time><p>Executive summary for the project's <b>public hearing</b> published by the Pollution Control Board.</p></li>
+        <li><time>Apr 2026</time><p>Equipment contracts announced for "India's largest pumped-storage plant".</p></li>
+        <li class="hot"><time>24 Oct 2026</time><p>MLA Rohit Pawar alleges 32,000+ trees felled. Forest Dept: no illegal felling inside the sanctuary.</p></li>
+        <li class="hot"><time>26 Oct</time><p>CM: project is eco-friendly, plantation will be done, a "fake narrative".</p></li>
+        <li class="hot"><time>27 Oct</time><p>Ulhas river action committee moves the <b>National Green Tribunal</b>.</p></li>
+        <li class="next"><time>Next?</time><p>The Tribunal hearing. Until then, felling should pause. That is our ask.</p></li>
+      </ol>
+    </div>
+
+    <div class="ib reveal">
+      <div class="ib-h"><span class="ib-n">5</span><h3>Your questions</h3></div>
+      <div class="faq">
+        <details><summary>Is the project inside the sanctuary?</summary><p>According to the Forest Department, no: the site is outside the boundary. But Shekru, leopards and birds don't follow lines on a map. Forest on a sanctuary's edge is its buffer; lose it and the forest inside is exposed too.</p></details>
+        <details><summary>Isn't pumped storage green energy?</summary><p>Yes, it's useful for storing solar and wind power. But such plants can also be built on existing dams or barren land ("closed-loop"). Cutting old natural forest for a "green" project gets the maths backwards.</p></details>
+        <details><summary>Won't new planting make up for it?</summary><p>A sapling is not a forest. A hundred-year-old tree with its moss, orchids, fungi, nests and soil life takes decades, sometimes centuries, to come back. And compensatory planting often happens in a different district altogether.</p></details>
+        <details><summary>Is the 32,000 figure real?</summary><p>The figure comes from allegations and news reports and hasn't been independently verified. That's why our first ask is: <b>publish the impact assessment and tree count.</b> With real numbers, the debate can rest on facts.</p></details>
+        <details><summary>Why the landslide risk?</summary><p>In heavy rain, Sahyadri slopes are held together by tree roots. Disasters like Malin (2014) and Irshalwadi (2023) happened in this same range. Tunnel blasting and bare slopes can raise that risk, hence the call for an independent study.</p></details>
+        <details><summary>What can I do?</summary><p>1) Sign the petition below. 2) Email the ready-made letter. 3) Share this link in your WhatsApp groups. 4) Ask your MLA and MP about it. 5) Visit Bhimashankar, respectfully.</p></details>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="cut" class="gl-zone" data-scene="cut">
   <div class="cut-sticky">
     <div class="counter"><span class="lbl">trees marked to fall</span><b id="treeCount">0</b><div class="bar"><i id="treeBar"></i></div></div>
     <div class="cut-steps">
-      <div class="cstep" data-i="0"><p class="chapno warn">Chapter 07 · The cut</p><h2>Now, <em>watch</em> the forest.</h2><p>This is a model of a forest plateau like the one at Saidongar, in Karjat taluka of Raigad district, on the western edge of the Bhimashankar landscape. Keep scrolling.</p></div>
+      <div class="cstep" data-i="0"><p class="chapno warn">Chapter 08 · The cut</p><h2>Now, <em>watch</em> the forest.</h2><p>This is a model of a forest plateau like the one at Saidongar, in Karjat taluka of Raigad district, on the western edge of the Bhimashankar landscape. Keep scrolling.</p></div>
       <div class="cstep" data-i="1"><h3>3,000 MW</h3><p>Torrent Power has proposed a <b>pumped-storage hydroelectric project</b> here, estimated at ₹13,500–15,000 crore. Two reservoirs, tunnels through the hill, and water pumped up and let down to store power.</p></div>
       <div class="cstep" data-i="2"><h3>32,000+ trees</h3><p>Permission has been sought to fell <b>more than 32,000 trees</b>, reported as about <b>233 hectares (~600 acres)</b> of forest. That's roughly <b>326 football pitches</b>.</p></div>
-      <div class="cstep" data-i="3"><h3>Water</h3><p>The site lies in the valley of the <b>Page river</b>, a tributary of the <b>Ulhas</b>, which supplies drinking water to towns downstream. Activists warn of water scarcity.</p></div>
+      <div class="cstep" data-i="3"><h3>Water</h3><p>The site lies in the valley of the <b>Pej river</b>, a tributary of the <b>Ulhas</b>, which supplies drinking water to towns downstream. Activists warn of water scarcity.</p></div>
       <div class="cstep" data-i="4"><h3>Hillsides</h3><p>Tunnel blasting in these hills worries locals who remember <b>Malin (2014)</b> and <b>Irshalwadi (2023)</b>, villages buried by landslides in the Sahyadri.</p></div>
       <div class="cstep" data-i="5"><h3>A sapling is not a forest</h3><p>Compensatory plantation has been promised. But a planted sapling is not a cloud forest with moss, fungi, hornbills and a continuous canopy that took centuries to grow.</p></div>
     </div>
@@ -199,7 +354,7 @@
 
 <section id="sides" class="chap solid">
   <div class="wrap">
-    <p class="chapno reveal">Chapter 08</p>
+    <p class="chapno reveal">Chapter 09</p>
     <h2 class="reveal">What each side <em>says</em></h2>
     <p class="sub reveal">Facts matter more than slogans. Here's what has been reported, 24–27 October 2026.</p>
     <div class="versus">
@@ -247,7 +402,7 @@
       <ol>
         <li><b>Pause all felling</b> at Saidongar until the National Green Tribunal has heard the case.</li>
         <li><b>Publish</b> the Environmental Impact Assessment, wildlife-impact study and rehabilitation plan.</li>
-        <li>Order an independent <b>landslide and water-security study</b> for the Page–Ulhas valley.</li>
+        <li>Order an independent <b>landslide and water-security study</b> for the Pej–Ulhas valley.</li>
         <li><b>Consult gram sabhas</b> and Adivasi communities, as the Forest Rights Act requires.</li>
         <li><b>Consider alternative sites</b> that don't sacrifice old forest next to a sanctuary.</li>
       </ol>
@@ -287,6 +442,10 @@
         <li><a href="https://telanganatoday.com/adani-group-refutes-social-media-claims-over-alleged-tree-felling-near-bhimashankar-temple" target="_blank" rel="noopener">Telangana Today — Adani Group statement</a></li>
         <li><a href="https://www.threatenedtaxa.org/index.php/JoTT/article/view/3074" target="_blank" rel="noopener">Journal of Threatened Taxa — Floristic diversity of Bhimashankar WLS (2017)</a></li>
         <li><a href="https://kalpavriksh.org/our-work/conservation-livelihoods/bhimashankar/" target="_blank" rel="noopener">Kalpavriksh — Bhimashankar conservation &amp; livelihoods</a></li>
+        <li><a href="https://cea.nic.in/wp-content/uploads/hpi/2026/08/PSP_Status_of_development.pdf" target="_blank" rel="noopener">Central Electricity Authority — Status of pumped-storage development (Aug 2026)</a></li>
+        <li><a href="https://parivesh.nic.in/utildoc/138526951_1761290980434.pdf" target="_blank" rel="noopener">PARIVESH — Saidongar PSP appraisal document (villages, 377 ha)</a></li>
+        <li><a href="https://mpcb.gov.in/sites/default/files/public_hearing/exe_summary/2025-08/Combined%20executive%20summary-Torrent%20power.pdf" target="_blank" rel="noopener">MPCB — Public hearing executive summary, Torrent Power (Aug 2025)</a></li>
+        <li><a href="https://www.andritz.com/newsroom-en/hydro/2026-04-14-saidongar-group" target="_blank" rel="noopener">ANDRITZ — Saidongar equipment order (14 Apr 2026)</a></li>
         <li><a href="https://en.wikipedia.org/wiki/Bhimashankar_Wildlife_Sanctuary" target="_blank" rel="noopener">Wikipedia — Bhimashankar Wildlife Sanctuary</a></li>
       </ul>
       <p class="disc">A citizen-made page. Tree counts and areas are as reported in the news and by petitioners; they have not been independently verified. The 3D forest is an illustration, not a map of the site. YouTube videos belong to their creators.</p>
@@ -299,6 +458,8 @@
     </div>
   </div>
 </footer>
+
+<a class="mbar" href="#sign"><span>🌳 32,000+ trees at stake</span><b>Sign →</b></a>
 
 <script src="../app.js"></script>
 </body>

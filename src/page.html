@@ -14,6 +14,9 @@
 <link rel="stylesheet" href="{{R}}style.css">
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
 <script type="module" src="{{R}}forest.js"></script>
+<script type="module" src="{{R}}shekru3d.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js" defer></script>
+<script src="{{R}}issue.js" defer></script>
 </head>
 <body>
 <canvas id="forest" aria-hidden="true"></canvas>
@@ -23,8 +26,8 @@
 <header id="top">
   <a class="brand" href="#hero"><span class="leaf">❦</span> [[भीमाशंकर वाचवा||Save Bhimashankar]]</a>
   <nav>
-    <a href="#forest-ch">[[जंगल||Forest]]</a><a href="#shekru">[[शेकरू||Shekru]]</a><a href="#life">[[जीवसृष्टी||Life]]</a><a href="#films">[[चित्रफिती||Films]]</a><a href="#cut">[[वृक्षतोड||The cut]]</a>
-    <a class="lang" href="[[en/||../]]">[[EN||मराठी]]</a>
+    <a class="nl" href="#brief">[[थोडक्यात||In brief]]</a><a class="nl" href="#shekru">[[शेकरू||Shekru]]</a><a class="nl" href="#life">[[जीवसृष्टी||Life]]</a><a class="nl" href="#issue">[[प्रश्न||The issue]]</a><a class="nl" href="#films">[[चित्रफिती||Films]]</a>
+    <span class="lsw" role="group" aria-label="Language"><a href="[[./||../]]" lang="mr"{{MR_ON}}>मराठी</a><a href="[[en/||./]]" lang="en"{{EN_ON}}>English</a></span>
     <a class="gh" href="https://github.com/KanurkarPrateek" target="_blank" rel="noopener" aria-label="GitHub">{{GH}}</a>
     <a class="cta" href="#sign">[[सही करा||Sign]]</a>
   </nav>
@@ -49,6 +52,20 @@
 <div class="ribbon"><div class="track">
   <span>शेकरू</span><b>✦</b><span>Sahyadri</span><b>✦</b><span>देवराई</span><b>✦</b><span>Western Ghats</span><b>✦</b><span>भीमा नदी</span><b>✦</b><span>Cloud forest</span><b>✦</b><span>काजवे</span><b>✦</b><span>Fireflies</span><b>✦</b><span>शेकरू</span><b>✦</b><span>Sahyadri</span><b>✦</b><span>देवराई</span><b>✦</b><span>Western Ghats</span><b>✦</b><span>भीमा नदी</span><b>✦</b><span>Cloud forest</span><b>✦</b><span>काजवे</span><b>✦</b><span>Fireflies</span><b>✦</b>
 </div></div>
+
+<section id="brief" class="chap solid">
+  <div class="wrap">
+    <p class="chapno reveal">[[+थोडक्यात · ३० सेकंदात||In brief · 30 seconds]]</p>
+    <h2 class="reveal">[[नेमकं काय <em>चाललंय</em>?||What is <em>happening</em>?]]</h2>
+    <div class="brief">
+      <article class="bc reveal"><span class="bi">🌳</span><h3>[[+काय होतंय||What]]</h3><p>[[भीमाशंकर अभयारण्याच्या पश्चिम काठावर, कर्जत तालुक्यातील सैदोंगर येथे <b>३,००० मेगावॅटच्या ‘पंप्ड स्टोरेज’ वीज प्रकल्पासाठी</b> सुमारे २३३ हेक्टरवरील <b>३२,०००+ झाडं</b> तोडली जात असल्याचं वृत्त आहे.||At Saidongar in Karjat taluka, on the western edge of Bhimashankar sanctuary, <b>32,000+ trees</b> on about 233 ha are reportedly being felled for a <b>3,000 MW pumped-storage power project</b>.]]</p></article>
+      <article class="bc reveal"><span class="bi">💧</span><h3>[[+का महत्त्वाचं||Why it matters]]</h3><p>[[हे जंगल <b>शेकरूचं छत</b> आहे, <b>पेज–उल्हास</b> नद्यांचं पाणलोट आहे, आणि दरडप्रवण सह्याद्रीचे उतार धरून ठेवतं. इथे आदिवासी गावं राहतात.||This forest is <b>the Shekru's canopy</b>, the catchment of the <b>Pej and Ulhas</b> rivers, and it holds landslide-prone Sahyadri slopes together. Adivasi villages live here.]]</p></article>
+      <article class="bc reveal"><span class="bi">⚖️</span><h3>[[+वाद काय||The dispute]]</h3><p>[[<b>सरकार:</b> जागा अभयारण्याच्या बाहेर, प्रकल्प हरित, वृक्षारोपण करू. <b>नागरिक:</b> जंगल हद्दीवर थांबत नाही — आधी अभ्यास सार्वजनिक करा, लोकांचं ऐका. प्रकरण <b>हरित लवादाकडे</b>.||<b>Government:</b> the site is outside the sanctuary, the project is green, trees will be planted. <b>Citizens:</b> a forest doesn't stop at a line — publish the studies, hear the people first. The case is going to the <b>Green Tribunal</b>.]]</p></article>
+      <article class="bc act reveal"><span class="bi">✍️</span><h3>[[+तुम्ही काय करू शकता||What you can do]]</h3><p>[[याचिकेवर सही करा, तयार पत्र शासनाला पाठवा आणि ही गोष्ट WhatsApp वर शेअर करा.||Sign the petition, send the ready-made letter to the government, and share this story on WhatsApp.]]</p><a class="btn solid" href="#sign">[[सही करा →||Sign now →]]</a></article>
+    </div>
+    <a class="more reveal" href="#issue">[[सविस्तर समजून घ्या: नकाशा, प्रकल्प, प्रश्नोत्तरं ↓||Understand it in detail: map, project, FAQ ↓]]</a>
+  </div>
+</section>
 
 <section id="forest-ch" class="chap solid">
   <div class="drone" data-par>
@@ -83,15 +100,32 @@
 
 <section id="shekru" class="chap solid">
   <div class="shekru">
-    <div class="sq-img" data-par="-0.1"><img src="{{R}}img/shekru.jpg" alt="" class="kb kb-b"></div>
-    <div class="sq-txt reveal">
+    <div class="sq-head reveal">
       <p class="chapno">[[प्रकरण ०२||Chapter 02]]</p>
       <h2>[[हे अभयारण्य जिच्यासाठी: <em>शेकरू</em>||The reason it exists: <em>Shekru</em>]]</h2>
       <p class="mr-line">[[Indian giant squirrel · महाराष्ट्राचा राज्यप्राणी||शेकरू — महाराष्ट्राचा राज्यप्राणी]]</p>
+    </div>
+    <div class="sq-stage">
+      <div id="shekru3d" class="s3d">
+        <canvas aria-label="[[शेकरूचं 3D मॉडेल||3D model of a Shekru]]"></canvas>
+        <div class="s3d-load"><img src="{{R}}img/shekru.jpg" alt=""></div>
+        <button class="hs" data-at="tail" data-off="0,-1.7,-0.5" data-t="[[शेपूट||Tail]]" data-p="[[शरीराइतकीच लांब (~६० सेमी) झुबकेदार शेपूट. ६ मीटरच्या झेपेत तोल सांभाळणारं सुकाणू — आणि झोपताना पांघरूण.||A bushy tail as long as its body (~60 cm): the rudder for 6-metre leaps, and a blanket when it sleeps.]]"><i>[[१||1]]</i></button>
+        <button class="hs" data-at="back" data-off="0,1.0,-0.2" data-t="[[तांबूस-काळा कोट||Maroon coat]]" data-p="[[उत्तर सह्याद्रीतली उपजात <i>elphinstonei</i>: गडद तांबूस-काळी पाठ, क्रीम पोट. नाकापासून शेपटीपर्यंत जवळपास १ मीटर, वजन सुमारे २ किलो.||The northern Sahyadri form, <i>elphinstonei</i>: deep maroon-black back, cream belly. Nearly 1 m nose to tail, about 2 kg.]]"><i>[[२||2]]</i></button>
+        <button class="hs" data-at="hand" data-off="0,-0.3,0.05" data-t="[[हात आणि आहार||Hands & diet]]" data-p="[[फळं, बिया, फुलं, कोवळी पानं, साल. अन्न हातात धरून खाते, आणि बिया पसरवून नवं जंगल लावते.||Fruit, seeds, flowers, young leaves, bark. It eats holding food in its hands, and spreads seeds that grow new forest.]]"><i>[[३||3]]</i></button>
+        <button class="hs" data-at="head" data-off="0.2,0.42,-0.05" data-t="[[सावध कान-डोळे||Alert eyes & ears]]" data-p="[[गरुड आणि बिबट्यापासून सावध. धोका दिसला की मोठ्याने ओरडते किंवा खोडाला चिकटून स्तब्ध होते. उंच झाडांवर पानांची अनेक घरटी बांधते.||Always watching for eagles and leopards. In danger it calls loudly or flattens against the trunk. It builds several leafy nests high in the trees.]]"><i>[[४||4]]</i></button>
+        <div class="hs-card" role="status"><b></b><p></p><small>[[बंद करण्यासाठी टॅप करा||tap to close]]</small></div>
+        <div class="s3d-ui">
+          <span class="s3d-hint">[[↔ बोटाने फिरवा · ठिपक्यांवर टॅप करा||↔ drag to turn · tap the dots]]</span>
+          <button class="leap btn solid">[[उडी पाहा ↷||Watch it leap ↷]]</button>
+        </div>
+      </div>
+    </div>
+    <div class="sq-txt reveal">
       <p>[[शेकरू (<i>Ratufa indica elphinstonei</i>) ही मांजराएवढी मोठी खार आहे — नाकापासून शेपटीच्या टोकापर्यंत जवळपास एक मीटर, अंगावर तांबूस, काळा आणि क्रीम रंग. ती महाराष्ट्राचा राज्यप्राणी आहे, आणि हे अभयारण्य तिच्यासाठीच निर्माण झालं.||The Indian giant squirrel (<i>Ratufa indica elphinstonei</i>) is a squirrel the size of a cat, nearly a metre from nose to the tip of its tail, rust and black and cream. It is Maharashtra's state animal, and this sanctuary was created for it.]]</p>
       <p>[[शेकरू क्वचितच जमिनीवर उतरते. ती उंच झाडांवर पानांची अनेक घरटी बांधते आणि एका झाडावरून दुसऱ्या झाडावर सहा मीटरपर्यंत झेप घेते. तिचं संपूर्ण जग म्हणजे <b>झाडांचं अखंड छत</b>.||A Shekru almost never touches the ground. It builds several leafy nests high in the canopy and leaps up to six metres between crowns. Its whole world is a <b>continuous roof of trees</b>.]]</p>
       <div class="pull">[[त्या छताला भगदाड पाडलं, तर फक्त झाडं जात नाहीत — शेकरूचा रस्ताच तुटतो.||Cut a gap in that roof and you don't just lose trees. You cut the squirrel's road.]]</div>
       <div class="canopy-line" aria-hidden="true"><svg viewBox="0 0 600 90" preserveAspectRatio="none"><path class="cl" d="M0 60 C 40 20, 80 20, 120 50 S 200 15, 240 45 S 320 20, 360 50"/><path class="cl gap" d="M360 50 L 440 50"/><path class="cl" d="M440 50 C 480 20, 520 25, 560 50 S 590 40, 600 45"/><circle class="sq" r="6" cx="0" cy="60"/></svg><span>[[झाडांचा महामार्ग · तुटलेला||canopy highway · broken]]</span></div>
+      <div class="sq-gal" id="sqGal"></div>
       <button class="yt mini" data-id="wZCeWE-guHY"><img src="https://i.ytimg.com/vi/wZCeWE-guHY/hqdefault.jpg" alt="" loading="lazy"><span class="play"></span><span class="yt-t">[[भीमाशंकरमध्ये टिपलेली खरी शेकरू · Kaivalya_yatri||A real Shekru filmed at Bhimashankar · Kaivalya_yatri]]</span></button>
     </div>
   </div>
@@ -108,6 +142,19 @@
       <div class="ring reveal" style="--p:.19"><svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52"/></svg><b data-to="217">0</b><span>[[फक्त भारतात आढळणाऱ्या||found only in India]]</span></div>
       <div class="ring reveal" style="--p:.05"><svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52"/></svg><b data-to="53">0</b><span>[[IUCN धोक्याच्या यादीत||on IUCN threat lists]]</span></div>
       <div class="ring reveal" style="--p:.6"><svg viewBox="0 0 120 120"><circle class="bg" cx="60" cy="60" r="52"/><circle class="fg" cx="60" cy="60" r="52"/></svg><b data-to="529" data-suf="+">0</b><span>[[नोंदवलेल्या प्राणी प्रजाती||animal species reported]]</span></div>
+    </div>
+    <div class="flora reveal">
+      <div class="flora-txt">
+        <h3>[[+१,१४२ ठिपके. प्रत्येक ठिपका म्हणजे एक वनस्पती प्रजाती.||1,142 dots. Each one is a plant species.]]</h3>
+        <p>[[भीमाशंकरमध्ये नोंदवलेली प्रत्येक सपुष्प वनस्पती इथे एक ठिपका आहे. खालील बटणं दाबून पाहा — किती फक्त भारतात आढळतात आणि किती धोक्यात आहेत.||Every flowering plant recorded at Bhimashankar is one dot here. Tap the buttons to see how many grow only in India, and how many are threatened.]]</p>
+        <div class="chips" role="group">
+          <button class="chip on" data-k="all">[[सर्व १,१४२||All 1,142]]</button>
+          <button class="chip gold" data-k="end">[[फक्त भारतात · २१७||Only in India · 217]]</button>
+          <button class="chip ember" data-k="thr">[[धोक्यात · ५३||Threatened · 53]]</button>
+        </div>
+        <p class="tiny">[[स्रोत: Journal of Threatened Taxa (२०१७). ठिपक्यांची मांडणी प्रतीकात्मक.||Source: Journal of Threatened Taxa (2017). Dot layout is illustrative.]]</p>
+      </div>
+      <svg id="plants" viewBox="0 0 400 400" role="img" aria-label="[[१,१४२ वनस्पती प्रजातींचं चित्र||Chart of 1,142 plant species]]"></svg>
     </div>
   </div>
 </section>
@@ -183,14 +230,122 @@
   </div>
 </section>
 
+<section id="issue" class="chap solid">
+  <div class="wrap">
+    <p class="chapno warn reveal">[[+प्रकरण ०७ · प्रश्न समजून घ्या||Chapter 07 · Understand the issue]]</p>
+    <h2 class="reveal">[[प्रश्न <em>नेमका</em> काय आहे?||What <em>exactly</em> is the issue?]]</h2>
+    <p class="sub reveal">[[घोषणा बाजूला ठेवून, पाच टप्प्यांत: कुठे, काय, किती, केव्हा, आणि तुमचे प्रश्न.||Slogans aside, in five steps: where, what, how much, when, and your questions.]]</p>
+
+    <div class="ib reveal">
+      <div class="ib-h"><span class="ib-n">[[१||1]]</span><h3>[[+हे कुठे आहे?||Where is it?]]</h3></div>
+      <div class="ib-grid">
+        <div class="mapbox"><svg id="map" viewBox="0 0 400 420" role="img" aria-label="[[मुंबई, पुणे, कर्जत आणि भीमाशंकरचा नकाशा||Map of Mumbai, Pune, Karjat and Bhimashankar]]"></svg></div>
+        <div class="ib-txt">
+          <p>[[भीमाशंकर अभयारण्य सह्याद्रीच्या माथ्यावर आहे (पुणे जिल्हा). त्याच्या <b>पश्चिमेला कडा थेट कोकणात उतरतो</b> — रायगड जिल्ह्यातील कर्जत तालुक्यात. प्रकल्पाची जागा याच उतारावर, <b>पोटल, सैदोंगर, आंबोट</b> या गावांच्या परिसरात आहे.||Bhimashankar sanctuary sits on the Sahyadri crest (Pune district). To its <b>west, the escarpment drops straight into the Konkan</b>, into Karjat taluka of Raigad. The project site is on these slopes, around the villages of <b>Potal, Saidongar and Ambot</b>.]]</p>
+          <p>[[इथून उगम पावणारी <b>पेज नदी</b> उल्हास नदीला मिळते. उल्हास पुढे बदलापूर, कल्याण, ठाण्याच्या दिशेने वाहते — लाखो लोकांच्या पिण्याच्या पाण्याचा स्रोत.||The <b>Pej river</b>, which rises here, joins the Ulhas. The Ulhas flows on towards Badlapur, Kalyan and Thane, a drinking-water source for millions.]]</p>
+          <p class="tiny">[[नकाशा प्रतीकात्मक आहे; प्रकल्पाचं ठिकाण अंदाजे दाखवलं आहे.||Schematic map; the project location is approximate.]]</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ib reveal">
+      <div class="ib-h"><span class="ib-n">[[२||2]]</span><h3>[[+हा प्रकल्प काय आहे?||What is the project?]]</h3></div>
+      <div class="ib-grid">
+        <div class="psp" id="psp" data-mode="store">
+          <svg viewBox="0 0 400 260" role="img" aria-label="[[पंप्ड स्टोरेज प्रकल्प कसा चालतो||How a pumped-storage plant works]]">
+            <defs>
+              <linearGradient id="pspSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" class="sky1"/><stop offset="1" class="sky2"/></linearGradient>
+              <linearGradient id="pspHill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2f5a2a"/><stop offset="1" stop-color="#14261a"/></linearGradient>
+              <linearGradient id="pspW" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6fc3e8"/><stop offset="1" stop-color="#1e6c95"/></linearGradient>
+              <clipPath id="upClip"><path d="M38 71 L150 71 L141 92 L47 92 Z"/></clipPath>
+              <clipPath id="loClip"><path d="M292 214 L386 214 L386 244 L300 244 Z"/></clipPath>
+            </defs>
+            <rect width="400" height="260" fill="url(#pspSky)"/>
+            <g class="sunmoon"><circle class="sun" cx="350" cy="40" r="15"/><path class="moon" d="M352 26 a16 16 0 1 0 12 26 a13 13 0 1 1 -12 -26z"/></g>
+            <path d="M0 260 L0 72 L176 70 C206 72 214 110 238 150 C262 190 282 207 300 212 L400 214 L400 260 Z" fill="url(#pspHill)"/>
+            <g class="trees">
+              <path d="M8 70 l6 -16 l6 16z M20 71 l7 -19 l7 19z M152 70 l7 -18 l7 18z M164 70 l6 -15 l6 15z M178 76 l6 -16 l6 16z M190 88 l6 -16 l6 16z M200 101 l6 -15 l6 15z M212 118 l6 -15 l6 15z"/>
+            </g>
+            <g class="stumps"><rect x="58" y="66" width="4" height="5"/><rect x="88" y="66" width="4" height="5"/><rect x="118" y="66" width="4" height="5"/></g>
+            <g clip-path="url(#upClip)"><rect class="lvl up" x="38" y="71" width="112" height="22" fill="url(#pspW)"/></g>
+            <path d="M38 71 L150 71 L141 92 L47 92 Z" fill="none" stroke="#cfe6ff" stroke-opacity=".5"/>
+            <path class="pipe" d="M138 90 C170 125 232 172 292 208"/>
+            <path class="flow" d="M138 90 C170 125 232 172 292 208"/>
+            <rect x="284" y="198" width="22" height="16" rx="2" fill="#dfe7d6"/><path d="M289 198 l6 -7 l6 7z" fill="#dfe7d6"/>
+            <path class="bolt" d="M296 176 l-6 10 h6 l-4 10 l11 -13 h-6 l4 -7z"/>
+            <g clip-path="url(#loClip)"><rect class="lvl lo" x="292" y="214" width="96" height="32" fill="url(#pspW)"/></g>
+            <rect x="384" y="206" width="8" height="40" fill="#9aa59a"/>
+            <text class="lb" x="94" y="108" text-anchor="middle">[[वरचा जलाशय||Upper reservoir]]</text>
+            <text class="lb sm" x="94" y="120" text-anchor="middle">[[(डोंगरमाथ्यावर, जंगलाच्या जागी)||(on the hilltop, where forest was)]]</text>
+            <text class="lb" x="340" y="256" text-anchor="middle">[[खालचा जलाशय · पेज नदी||Lower reservoir · Pej river]]</text>
+            <text class="lb sm" x="232" y="214" text-anchor="end">[[बोगदा → टर्बाइन||tunnel → turbine]]</text>
+          </svg>
+          <div class="psp-ctl" role="tablist">
+            <button class="on" data-m="store">[[☀️ दिवस: पाणी वर||☀️ Day: water up]]</button>
+            <button data-m="gen">[[🌙 संध्याकाळ: वीज||🌙 Evening: power]]</button>
+          </div>
+        </div>
+        <div class="ib-txt">
+          <p>[[हा प्रकल्प म्हणजे एक प्रचंड <b>‘पाण्याची बॅटरी’</b>. दिवसा सौरऊर्जा भरपूर असते, तेव्हा खालच्या धरणातून पाणी डोंगरमाथ्यावरच्या तलावात <b>पंप</b> केलं जातं. संध्याकाळी विजेची मागणी वाढली की तेच पाणी खाली सोडून <b>टर्बाइनमधून वीज</b> तयार होते.||The project is a giant <b>"water battery"</b>. In the day, when solar power is plentiful, water is <b>pumped</b> from a lower dam up to a lake on the hilltop. In the evening, when demand peaks, the same water is let down through <b>turbines to make power</b>.]]</p>
+          <p>[[केंद्रीय विद्युत प्राधिकरणाच्या नोंदीनुसार <b>वरचा जलाशय पेज नदीच्या पाणलोटातील सपाट माथ्याच्या डोंगरावर</b>, आणि <b>खालचा जलाशय पेज नदीवर</b> प्रस्तावित आहे. म्हणजे जंगलाचा माथा पाण्याखाली आणि नदी धरणाखाली.||Central Electricity Authority records place the <b>upper reservoir on a table-top hill in the Pej catchment</b> and the <b>lower reservoir across the Pej river</b>. The forested hilltop goes under water, and the river goes behind a dam.]]</p>
+          <p class="callout">[[स्वच्छ ऊर्जेसाठी ही साठवण गरजेची आहे — <b>प्रश्न तंत्रज्ञानाचा नाही, जागेचा आहे.</b> हरित ऊर्जेसाठी अभयारण्याच्या काठावरचं जुनं जंगल तोडणं हा विरोधाभास आहे.||Storage like this matters for clean energy. <b>The question is not the technology, it's the location.</b> Felling old forest at a sanctuary's edge for green energy is a contradiction.]]</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ib reveal">
+      <div class="ib-h"><span class="ib-n">[[३||3]]</span><h3>[[+२३३ हेक्टर म्हणजे किती?||How big is 233 hectares?]]</h3></div>
+      <div class="ib-grid">
+        <div class="areabox"><svg id="area" viewBox="0 0 400 400" role="img" aria-label="[[२३३ हेक्टरची तुलना||Comparing 233 hectares]]"></svg><div class="area-num"><b id="areaN">३२६</b><span id="areaL"></span></div></div>
+        <div class="ib-txt">
+          <p>[[मोठा चौकोन म्हणजे बातम्यांमध्ये सांगितलेलं <b>२३३ हेक्टर जंगल</b>. त्यात किती गोष्टी मावतात ते निवडा:||The big square is the <b>233 hectares of forest</b> reported in the news. Pick something to see how many fit inside:]]</p>
+          <div class="chips" role="group" id="areaChips">
+            <button class="chip on" data-u="0.714" data-l="[[फुटबॉल मैदानं||football pitches]]">[[⚽ फुटबॉल मैदान||⚽ Football pitch]]</button>
+            <button class="chip" data-u="11.3" data-l="[[शिवाजी पार्क (दादर)||Shivaji Parks (Dadar)]]">[[🏏 शिवाजी पार्क||🏏 Shivaji Park]]</button>
+            <button class="chip" data-u="0.0016" data-l="[[झाडं · एक ठिपका = १० झाडं||trees · one dot = 10 trees]]" data-trees="1">[[🌳 ३२,००० झाडं||🌳 32,000 trees]]</button>
+          </div>
+          <p>[[प्रकल्पाच्या पर्यावरण मंजुरीच्या कागदपत्रांत एकूण प्रकल्प क्षेत्र <b>३७७ हेक्टर</b> दिलं आहे.||The project's environmental-clearance filings give a total project area of <b>377 hectares</b>.]]</p>
+          <p class="tiny">[[फुटबॉल मैदान ≈ ०.७१ हे., शिवाजी पार्क ≈ ११.३ हे.||Football pitch ≈ 0.71 ha, Shivaji Park ≈ 11.3 ha.]]</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="ib reveal">
+      <div class="ib-h"><span class="ib-n">[[४||4]]</span><h3>[[+आतापर्यंत काय घडलं||What has happened so far]]</h3></div>
+      <ol class="tl">
+        <li><time>[[१० ऑक्टो १९८५||10 Oct 1985]]</time><p>[[शेकरूच्या संरक्षणासाठी <b>भीमाशंकर वन्यजीव अभयारण्य</b> अधिसूचित.||<b>Bhimashankar Wildlife Sanctuary</b> notified to protect the Shekru.]]</p></li>
+        <li><time>[[सप्टें २०२४||Sep 2024]]</time><p>[[महाराष्ट्र शासन आणि टोरेंट पॉवर यांच्यात पंप्ड स्टोरेजसाठी <b>सामंजस्य करार</b>.||Maharashtra signs an <b>MoU</b> with Torrent Power for pumped storage.]]</p></li>
+        <li><time>[[ऑग २०२५||Aug 2025]]</time><p>[[प्रकल्पाच्या <b>जनसुनावणीचा</b> कार्यकारी सारांश प्रदूषण नियंत्रण मंडळावर प्रसिद्ध.||Executive summary for the project's <b>public hearing</b> published by the Pollution Control Board.]]</p></li>
+        <li><time>[[एप्रिल २०२६||Apr 2026]]</time><p>[[‘भारतातील सर्वात मोठ्या पंप्ड स्टोरेज प्रकल्पासाठी’ यंत्रसामग्रीचे करार जाहीर.||Equipment contracts announced for "India's largest pumped-storage plant".]]</p></li>
+        <li class="hot"><time>[[२४ ऑक्टो २०२६||24 Oct 2026]]</time><p>[[आमदार रोहित पवार यांचा ३२,०००+ झाडं तोडल्याचा आरोप. वनविभाग: अभयारण्यात अवैध तोड नाही.||MLA Rohit Pawar alleges 32,000+ trees felled. Forest Dept: no illegal felling inside the sanctuary.]]</p></li>
+        <li class="hot"><time>[[२६ ऑक्टो||26 Oct]]</time><p>[[मुख्यमंत्री: प्रकल्प पर्यावरणपूरक, वृक्षारोपण करू, ‘फेक नॅरेटिव्ह’.||CM: project is eco-friendly, plantation will be done, a "fake narrative".]]</p></li>
+        <li class="hot"><time>[[२७ ऑक्टो||27 Oct]]</time><p>[[उल्हास नदी बचाव कृती समितीची <b>राष्ट्रीय हरित लवादाकडे</b> धाव.||Ulhas river action committee moves the <b>National Green Tribunal</b>.]]</p></li>
+        <li class="next"><time>[[पुढे?||Next?]]</time><p>[[हरित लवादाची सुनावणी. तोपर्यंत तोड थांबावी, हीच आमची मागणी.||The Tribunal hearing. Until then, felling should pause. That is our ask.]]</p></li>
+      </ol>
+    </div>
+
+    <div class="ib reveal">
+      <div class="ib-h"><span class="ib-n">[[५||5]]</span><h3>[[+तुमचे प्रश्न||Your questions]]</h3></div>
+      <div class="faq">
+        <details><summary>[[प्रकल्प अभयारण्याच्या आत आहे का?||Is the project inside the sanctuary?]]</summary><p>[[वनविभागाच्या म्हणण्यानुसार नाही — जागा अभयारण्याच्या हद्दीबाहेर आहे. पण शेकरू, बिबटे आणि पक्षी नकाशावरच्या रेषा पाळत नाहीत. अभयारण्याच्या काठावरचं जंगल हे त्याचं संरक्षक कवच असतं; ते गेलं की आतलं जंगलही उघडं पडतं.||According to the Forest Department, no: the site is outside the boundary. But Shekru, leopards and birds don't follow lines on a map. Forest on a sanctuary's edge is its buffer; lose it and the forest inside is exposed too.]]</p></details>
+        <details><summary>[[पंप्ड स्टोरेज तर हरित ऊर्जा आहे ना?||Isn't pumped storage green energy?]]</summary><p>[[हो, सौर आणि पवन ऊर्जा साठवण्यासाठी ते उपयुक्त आहे. पण असे प्रकल्प आधीच अस्तित्वात असलेल्या धरणांवर किंवा ओसाड जमिनीवरही (‘क्लोज्ड-लूप’) उभारता येतात. ‘हरित’ प्रकल्पासाठी जुनं नैसर्गिक जंगल तोडणं हा उलटा हिशोब आहे.||Yes, it's useful for storing solar and wind power. But such plants can also be built on existing dams or barren land ("closed-loop"). Cutting old natural forest for a "green" project gets the maths backwards.]]</p></details>
+        <details><summary>[[नवीन झाडं लावली तर भरपाई होईल ना?||Won't new planting make up for it?]]</summary><p>[[रोपटं म्हणजे जंगल नव्हे. शंभर वर्षांचं झाड, त्यावरची शेवाळं, ऑर्किड्स, बुरशी, घरटी आणि मातीतली जीवसृष्टी हे सगळं परत यायला दशकं — कधी शतकं — लागतात. शिवाय भरपाईचं वृक्षारोपण अनेकदा दुसऱ्याच जिल्ह्यात होतं.||A sapling is not a forest. A hundred-year-old tree with its moss, orchids, fungi, nests and soil life takes decades, sometimes centuries, to come back. And compensatory planting often happens in a different district altogether.]]</p></details>
+        <details><summary>[[३२,००० हा आकडा खरा आहे का?||Is the 32,000 figure real?]]</summary><p>[[हा आकडा आरोप आणि बातम्यांमधून आला आहे; त्याची स्वतंत्र पडताळणी झालेली नाही. म्हणूनच आमची पहिली मागणी आहे: <b>पर्यावरण आघात मूल्यांकन आणि वृक्षगणना सार्वजनिक करा.</b> खरे आकडे समोर आले तर चर्चा तथ्यांवर होईल.||The figure comes from allegations and news reports and hasn't been independently verified. That's why our first ask is: <b>publish the impact assessment and tree count.</b> With real numbers, the debate can rest on facts.]]</p></details>
+        <details><summary>[[दरडीचा धोका का?||Why the landslide risk?]]</summary><p>[[सह्याद्रीचे उतार मुसळधार पावसात झाडांच्या मुळांनी धरून ठेवलेले असतात. माळीण (२०१४) आणि इर्शाळवाडी (२०२३) सारख्या दुर्घटना याच डोंगररांगेत घडल्या. बोगद्यांसाठीचे स्फोट आणि उघडे उतार हा धोका वाढवू शकतात, म्हणून स्वतंत्र अभ्यासाची मागणी आहे.||In heavy rain, Sahyadri slopes are held together by tree roots. Disasters like Malin (2014) and Irshalwadi (2023) happened in this same range. Tunnel blasting and bare slopes can raise that risk, hence the call for an independent study.]]</p></details>
+        <details><summary>[[मी काय करू शकतो/शकते?||What can I do?]]</summary><p>[[१) खाली याचिकेवर सही करा. २) तयार पत्र ईमेलने पाठवा. ३) ही लिंक तुमच्या WhatsApp ग्रुपमध्ये शेअर करा. ४) तुमच्या आमदार-खासदारांना प्रश्न विचारा. ५) भीमाशंकरला भेट द्या — पण जंगलाचा आदर ठेवून.||1) Sign the petition below. 2) Email the ready-made letter. 3) Share this link in your WhatsApp groups. 4) Ask your MLA and MP about it. 5) Visit Bhimashankar, respectfully.]]</p></details>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="cut" class="gl-zone" data-scene="cut">
   <div class="cut-sticky">
     <div class="counter"><span class="lbl">[[तोडण्यासाठी चिन्हांकित झाडं||trees marked to fall]]</span><b id="treeCount">0</b><div class="bar"><i id="treeBar"></i></div></div>
     <div class="cut-steps">
-      <div class="cstep" data-i="0"><p class="chapno warn">[[प्रकरण ०७ · वृक्षतोड||Chapter 07 · The cut]]</p><h2>[[आता, जंगलाकडे <em>पाहा</em>.||Now, <em>watch</em> the forest.]]</h2><p>[[हे सैदोंगरसारख्या जंगल-पठाराचं प्रतिरूप आहे — रायगड जिल्ह्यातील कर्जत तालुक्यात, भीमाशंकर परिसराच्या पश्चिम टोकाला. स्क्रोल करत राहा.||This is a model of a forest plateau like the one at Saidongar, in Karjat taluka of Raigad district, on the western edge of the Bhimashankar landscape. Keep scrolling.]]</p></div>
+      <div class="cstep" data-i="0"><p class="chapno warn">[[प्रकरण ०८ · वृक्षतोड||Chapter 08 · The cut]]</p><h2>[[आता, जंगलाकडे <em>पाहा</em>.||Now, <em>watch</em> the forest.]]</h2><p>[[हे सैदोंगरसारख्या जंगल-पठाराचं प्रतिरूप आहे — रायगड जिल्ह्यातील कर्जत तालुक्यात, भीमाशंकर परिसराच्या पश्चिम टोकाला. स्क्रोल करत राहा.||This is a model of a forest plateau like the one at Saidongar, in Karjat taluka of Raigad district, on the western edge of the Bhimashankar landscape. Keep scrolling.]]</p></div>
       <div class="cstep" data-i="1"><h3>[[३,००० मेगावॅट||3,000 MW]]</h3><p>[[टोरेंट पॉवरने इथे <b>पंप्ड स्टोरेज जलविद्युत प्रकल्प</b> प्रस्तावित केला आहे; अंदाजे खर्च ₹१३,५००–१५,००० कोटी. दोन जलाशय, डोंगरातून बोगदे, आणि वीज साठवण्यासाठी पाणी वर-खाली पंप करणं.||Torrent Power has proposed a <b>pumped-storage hydroelectric project</b> here, estimated at ₹13,500–15,000 crore. Two reservoirs, tunnels through the hill, and water pumped up and let down to store power.]]</p></div>
       <div class="cstep" data-i="2"><h3>[[३२,०००+ झाडं||32,000+ trees]]</h3><p>[[<b>३२,००० हून अधिक झाडं</b> तोडण्याची परवानगी मागितल्याचं वृत्त आहे — सुमारे <b>२३३ हेक्टर (~६०० एकर)</b> जंगल. म्हणजे जवळपास <b>३२६ फुटबॉल मैदानं</b>.||Permission has been sought to fell <b>more than 32,000 trees</b>, reported as about <b>233 hectares (~600 acres)</b> of forest. That's roughly <b>326 football pitches</b>.]]</p></div>
-      <div class="cstep" data-i="3"><h3>[[पाणी||Water]]</h3><p>[[हे ठिकाण <b>पेज नदी</b>च्या खोऱ्यात आहे — <b>उल्हास</b> नदीची उपनदी, जी खालच्या शहरांना पिण्याचं पाणी पुरवते. कार्यकर्ते पाणीटंचाईचा इशारा देत आहेत.||The site lies in the valley of the <b>Page river</b>, a tributary of the <b>Ulhas</b>, which supplies drinking water to towns downstream. Activists warn of water scarcity.]]</p></div>
+      <div class="cstep" data-i="3"><h3>[[पाणी||Water]]</h3><p>[[हे ठिकाण <b>पेज नदी</b>च्या खोऱ्यात आहे — <b>उल्हास</b> नदीची उपनदी, जी खालच्या शहरांना पिण्याचं पाणी पुरवते. कार्यकर्ते पाणीटंचाईचा इशारा देत आहेत.||The site lies in the valley of the <b>Pej river</b>, a tributary of the <b>Ulhas</b>, which supplies drinking water to towns downstream. Activists warn of water scarcity.]]</p></div>
       <div class="cstep" data-i="4"><h3>[[डोंगरउतार||Hillsides]]</h3><p>[[बोगद्यांसाठीचे स्फोट स्थानिकांना <b>माळीण (२०१४)</b> आणि <b>इर्शाळवाडी (२०२३)</b> ची आठवण करून देतात — सह्याद्रीत दरडींखाली गाडली गेलेली गावं.||Tunnel blasting in these hills worries locals who remember <b>Malin (2014)</b> and <b>Irshalwadi (2023)</b>, villages buried by landslides in the Sahyadri.]]</p></div>
       <div class="cstep" data-i="5"><h3>[[रोपटं म्हणजे जंगल नव्हे||A sapling is not a forest]]</h3><p>[[भरपाई म्हणून वृक्षारोपणाचं आश्वासन दिलं आहे. पण लावलेलं रोपटं म्हणजे शेवाळ, बुरशी, धनेश आणि शतकानुशतकं वाढलेलं अखंड छत असलेलं ढगांचं जंगल नव्हे.||Compensatory plantation has been promised. But a planted sapling is not a cloud forest with moss, fungi, hornbills and a continuous canopy that took centuries to grow.]]</p></div>
     </div>
@@ -199,7 +354,7 @@
 
 <section id="sides" class="chap solid">
   <div class="wrap">
-    <p class="chapno reveal">[[प्रकरण ०८||Chapter 08]]</p>
+    <p class="chapno reveal">[[प्रकरण ०९||Chapter 09]]</p>
     <h2 class="reveal">[[कोण काय <em>म्हणतंय</em>||What each side <em>says</em>]]</h2>
     <p class="sub reveal">[[घोषणांपेक्षा तथ्यं महत्त्वाची. २४–२७ ऑक्टोबर २०२६ दरम्यान आलेलं वृत्त असं आहे.||Facts matter more than slogans. Here's what has been reported, 24–27 October 2026.]]</p>
     <div class="versus">
@@ -247,7 +402,7 @@
       <ol>
         <li>[[राष्ट्रीय हरित लवादाची सुनावणी होईपर्यंत सैदोंगर येथील <b>सर्व वृक्षतोड थांबवावी</b>.||<b>Pause all felling</b> at Saidongar until the National Green Tribunal has heard the case.]]</li>
         <li>[[पर्यावरण आघात मूल्यांकन, वन्यजीव परिणाम अभ्यास आणि पुनर्वसन आराखडा <b>सार्वजनिक करावा</b>.||<b>Publish</b> the Environmental Impact Assessment, wildlife-impact study and rehabilitation plan.]]</li>
-        <li>[[पेज–उल्हास खोऱ्यासाठी स्वतंत्र <b>दरड आणि जलसुरक्षा अभ्यास</b> करावा.||Order an independent <b>landslide and water-security study</b> for the Page–Ulhas valley.]]</li>
+        <li>[[पेज–उल्हास खोऱ्यासाठी स्वतंत्र <b>दरड आणि जलसुरक्षा अभ्यास</b> करावा.||Order an independent <b>landslide and water-security study</b> for the Pej–Ulhas valley.]]</li>
         <li>[[वन हक्क कायद्यानुसार <b>ग्रामसभा</b> आणि आदिवासी समुदायांशी सल्लामसलत करावी.||<b>Consult gram sabhas</b> and Adivasi communities, as the Forest Rights Act requires.]]</li>
         <li>[[अभयारण्याशेजारील जुनं जंगल नष्ट न करणाऱ्या <b>पर्यायी जागांचा विचार करावा</b>.||<b>Consider alternative sites</b> that don't sacrifice old forest next to a sanctuary.]]</li>
       </ol>
@@ -287,6 +442,10 @@
         <li><a href="https://telanganatoday.com/adani-group-refutes-social-media-claims-over-alleged-tree-felling-near-bhimashankar-temple" target="_blank" rel="noopener">Telangana Today — Adani Group statement</a></li>
         <li><a href="https://www.threatenedtaxa.org/index.php/JoTT/article/view/3074" target="_blank" rel="noopener">Journal of Threatened Taxa — Floristic diversity of Bhimashankar WLS (2017)</a></li>
         <li><a href="https://kalpavriksh.org/our-work/conservation-livelihoods/bhimashankar/" target="_blank" rel="noopener">Kalpavriksh — Bhimashankar conservation &amp; livelihoods</a></li>
+        <li><a href="https://cea.nic.in/wp-content/uploads/hpi/2026/08/PSP_Status_of_development.pdf" target="_blank" rel="noopener">Central Electricity Authority — Status of pumped-storage development (Aug 2026)</a></li>
+        <li><a href="https://parivesh.nic.in/utildoc/138526951_1761290980434.pdf" target="_blank" rel="noopener">PARIVESH — Saidongar PSP appraisal document (villages, 377 ha)</a></li>
+        <li><a href="https://mpcb.gov.in/sites/default/files/public_hearing/exe_summary/2025-08/Combined%20executive%20summary-Torrent%20power.pdf" target="_blank" rel="noopener">MPCB — Public hearing executive summary, Torrent Power (Aug 2025)</a></li>
+        <li><a href="https://www.andritz.com/newsroom-en/hydro/2026-04-14-saidongar-group" target="_blank" rel="noopener">ANDRITZ — Saidongar equipment order (14 Apr 2026)</a></li>
         <li><a href="https://en.wikipedia.org/wiki/Bhimashankar_Wildlife_Sanctuary" target="_blank" rel="noopener">Wikipedia — Bhimashankar Wildlife Sanctuary</a></li>
       </ul>
       <p class="disc">[[नागरिकांनी तयार केलेलं पान. झाडांची संख्या आणि क्षेत्रफळ बातम्या व याचिकाकर्त्यांनी दिलेल्या माहितीनुसार आहे; त्यांची स्वतंत्र पडताळणी झालेली नाही. 3D जंगल हे प्रतीकात्मक चित्रण आहे, प्रत्यक्ष जागेचा नकाशा नव्हे. YouTube व्हिडिओ त्यांच्या निर्मात्यांचे आहेत.||A citizen-made page. Tree counts and areas are as reported in the news and by petitioners; they have not been independently verified. The 3D forest is an illustration, not a map of the site. YouTube videos belong to their creators.]]</p>
@@ -299,6 +458,8 @@
     </div>
   </div>
 </footer>
+
+<a class="mbar" href="#sign"><span>[[🌳 ३२,०००+ झाडं धोक्यात||🌳 32,000+ trees at stake]]</span><b>[[सही करा →||Sign →]]</b></a>
 
 <script src="{{R}}app.js"></script>
 </body>
