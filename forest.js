@@ -247,6 +247,7 @@ function shot(time) {
     wantLook.set(CUT.x - 30, H(CUT.x, CUT.y) - 6, CUT.y);
   }
   wantPos.x += state.mx * 4; wantPos.y += -state.my * 2;
+  if (mobile && s === "hero") { wantPos.y += 34; wantLook.y -= 6; }   // phones: fly higher so the plateau, cliff and valley read clearly
 }
 
 /* ---------- per-frame felling ---------- */
