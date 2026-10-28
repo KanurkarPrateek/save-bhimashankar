@@ -1,8 +1,10 @@
 # Save Bhimashankar · भीमाशंकर वाचवा
 
-A phone-first scroll story about Bhimashankar Wildlife Sanctuary, its forests, the Shekru and its people, and a petition against the felling of 32,000+ trees at Saidongar (Karjat), next to the sanctuary.
+**Live: [bhimashankar.katyar.com](https://bhimashankar.katyar.com)** (मराठी) · [English](https://bhimashankar.katyar.com/en/)
 
-- `src/page.html`: the one template. Each piece of text is written as `[[मराठी||English]]`. On the Marathi page every `<h2>` also gets a small English line; write `[[+मराठी||English]]` to add one anywhere else.
+A phone-first scroll story about Bhimashankar Wildlife Sanctuary, its forests, the Shekru and its people, and a petition against the felling of 32,490 trees at Saidongar (Karjat), about 15 km from the sanctuary, for a pumped-storage project.
+
+- `src/page.html`: the one template. Each piece of text is written as `[[मराठी||English]]`. The Marathi page is pure Marathi; the English page is pure English.
 - `python3 build.py` builds `index.html` (Marathi, the main page) and `en/index.html` (English). Edit the template, not the built files.
 - `style.css`, `app.js`: styles and scroll engine (parallax, drone footage, species reel, films, petition letter in both languages).
 - `video/`: two CC BY 4.0 Western Ghats clips (Mathanprasath K, Wikimedia Commons). Bhimashankar drone films and news reports are YouTube embeds credited to their creators.
