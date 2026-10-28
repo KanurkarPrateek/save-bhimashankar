@@ -770,3 +770,6 @@ html[lang=en] .m-lbl{font-family:var(--sans)}
   .hero-foot span{font-size:10px;line-height:1.3;display:block;letter-spacing:.04em}
   html[lang=mr] .hero-foot span{font-size:11.5px;letter-spacing:0}
 }
+.contact{font-size:14px;color:var(--mute);margin-top:10px}
+.contact a{color:var(--leaf);text-decoration:none;border-bottom:1px dashed rgba(155,224,122,.5);word-break:break-all}
+.contact.foot-c{font-size:16px;margin:0 0 14px;color:var(--ink)}
