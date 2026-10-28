@@ -244,8 +244,8 @@ window.tsReady = () => window.turnstile.render(tsBox, {
 });
 document.head.append(Object.assign(document.createElement("script"), { src: "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=tsReady", async: true }));
 const errBox = $(".form-err", form), submitBtn = $("button[type=submit]", form);
-function showSigns(n) { if (typeof n !== "number") return; $$("[data-signs]").forEach(b => b.textContent = fmt(n)); $$(".visits.signs").forEach(v => v.hidden = false); }
-fetch(COUNTER_URL + "/signs").then(r => r.json()).then(j => showSigns(j.count)).catch(() => {});
+function showSigns(n) { if (typeof n !== "number") return; COUNTS.signs = n; renderCounts(); }
+fetch(COUNTER_URL + "/signs", { cache: "no-store" }).then(r => r.json()).then(j => showSigns(j.count)).catch(() => {});
 
 form.addEventListener("submit", async e => {
   e.preventDefault();
@@ -359,21 +359,35 @@ if (sqp) {
   sqp.addEventListener("click", e => { if (e.target === img) card.click(); });
 }
 
-/* ---------- visitor counter (Cloudflare Worker + D1, see counter/) ---------- */
-const COUNTER = COUNTER_URL;
+/* ---------- visitor + signature counters (Cloudflare Worker + D1, see counter/) ---------- */
+const COUNTS = { visits: null, signs: null };
+const one = n => n === 1;
+const SENT = {
+  visits: n => MR ? (one(n) ? `<b>१</b> व्यक्तीने ही गोष्ट पाहिली` : `<b>${fmt(n)}</b> जणांनी ही गोष्ट पाहिली`) : `<b>${fmt(n)}</b> ${one(n) ? "person has" : "people have"} seen this story`,
+  signs: n => MR ? (one(n) ? `<b>१</b> व्यक्तीने आतापर्यंत सही केली` : `<b>${fmt(n)}</b> जणांनी आतापर्यंत सही केली`) : `<b>${fmt(n)}</b> ${one(n) ? "person has" : "people have"} signed so far`,
+};
+function renderCounts() {
+  const { visits: v, signs: s } = COUNTS;
+  $$(".visits[data-kind]").forEach(el => {
+    const k = el.dataset.kind, t = $(".vt", el);
+    if (k === "foot") {
+      if (v == null) return;
+      t.innerHTML = MR ? `<b>${fmt(v)}</b> भेटी${s != null ? ` · <b>${fmt(s)}</b> ${one(s) ? "सही" : "सह्या"}` : ""}`
+                       : `<b>${fmt(v)}</b> ${one(v) ? "visitor" : "visitors"}${s != null ? ` · <b>${fmt(s)}</b> ${one(s) ? "signature" : "signatures"}` : ""}`;
+    } else {
+      if (COUNTS[k] == null) return;
+      t.innerHTML = SENT[k](COUNTS[k]);
+    }
+    el.hidden = false;
+  });
+}
 (async () => {
   const local = /^(localhost|127\.|192\.168\.)/.test(location.hostname);
   let seen = false; try { seen = !!localStorage.getItem("sb_seen"); } catch {}
   try {
-    const r = await fetch(COUNTER + (seen || local ? "/count" : "/hit"), { method: seen || local ? "GET" : "POST" });
+    const r = await fetch(COUNTER_URL + (seen || local ? "/count" : "/hit"), { method: seen || local ? "GET" : "POST", cache: "no-store" });
     const { count } = await r.json();
     if (!seen && !local) try { localStorage.setItem("sb_seen", "1"); } catch {}
-    if (typeof count !== "number") return;
-    $$("[data-visits]").forEach(b => {
-      const t0 = performance.now();
-      const step = now => { const k = clamp((now - t0) / 1600); b.textContent = fmt(Math.round(count * (1 - Math.pow(1 - k, 3)))); if (k < 1) requestAnimationFrame(step); };
-      requestAnimationFrame(step);
-    });
-    $$(".visits").forEach(v => v.hidden = false);
+    if (typeof count === "number") { COUNTS.visits = count; renderCounts(); }
   } catch {}
 })();
