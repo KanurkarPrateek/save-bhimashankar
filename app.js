@@ -25,11 +25,40 @@ const CREDITS = [
   ["Trek route", "Rupelh", "CC BY-SA 4.0", "Bhimashankar_trekking.jpg"],
   ["Herbs at Bhimashankar", "Akshat.saxena21", "CC BY-SA 4.0", "Herbs_at_Bhimashankar.jpg"],
   ["Early morning, Bhimashankar", "Shubhamtakode", "CC BY-SA 4.0", "Bhimashankar_Wildlife_Reserve.jpg"],
+  ["Shekru hanging from a branch, tail streaming down", "Tisha Mukherjee", "CC BY-SA 4.0", "Indian_giant_squirrel_by_Tisha_Mukherjee_03.jpg"],
+  ["Shekru resting on a branch, long cream-tipped tail", "Kandukuru Nagarjun from Bangalore, India", "CC BY 2.0", "Malabar_giant_squirrel_with_gorgeous_tail_(53414506037).jpg"],
+  ["Shekru climbing head-first down a tree trunk", "Nitesh K R", "CC BY-SA 4.0", "Indian_Giant_Squirrel_or_Malabar_Giant_Squirrel.jpg"],
+  ["Shekru running along a branch, bushy tail raised", "Tisha Mukherjee", "CC BY-SA 4.0", "Indian_giant_squirrel_by_Tisha_Mukherjee_10.jpg"],
+  ["Maharashtra's Shekru feeding on fruit in the canopy", "Dinesh Valke from Thane, India", "CC BY-SA 2.0", "Shekru_(Marathi-_%E0%A4%B6%E0%A5%87%E0%A4%95%E0%A4%B0%E0%A5%82)_(8900080129).jpg"],
+  ["Shekru stretched along a branch in green forest", "Tisha Mukherjee", "CC BY-SA 4.0", "Indian_giant_squirrel_by_Tisha_Mukherjee_01.jpg"],
+  ["A forest trail vanishing into monsoon mist", "Nikhil More", "CC BY-SA 4.0", "Monsoon_Maharashtra_India_Rain_Landscape_(1)_14.jpg"],
+  ["Sahyadri village under monsoon clouds", "UrbanWanderer from PUNE, India", "CC BY-SA 2.0", "Village_from_the_dreams_-_%E0%A4%B8%E0%A5%8D%E0%A4%B5%E0%A4%AA%E0%A5%8D%E0%A4%A8%E0%A4%BE%E0%A4%AE%E0%A4%A7%E0%A5%80%E0%A4%B2_%E0%A4%97%E0%A4%BE%E0%A4%B5%E0%A4%BE_(6021136517).jpg"],
+  ["Rocky stream near the source of the Bhima river", "Santhosh.manchala", "CC BY-SA 4.0", "Start_of_river_Bhima_20150627.jpg"],
+  ["Sahyadri escarpment above the Konkan, Junnar", "Nikhil More", "CC BY-SA 4.0", "Durgawadi_ambe_hatvij,_Junnar,_pune_(2)_22.jpg"],
+  ["Monsoon gorge in the Sahyadri, wrapped in cloud", "Swapnilgorivale", "CC BY-SA 3.0", "Andharban_Forest.jpg"],
+  ["Great hornbill in flight, wings spread", "Dr. Raju Kasambe", "CC BY-SA 4.0", "Great_Pied_Hornbill_Buceros_bicornis_by_Dr._Raju_Kasambe_(2).jpg"],
+  ["Male Malabar trogon on a forest branch", "Shiv's fotografia", "CC BY-SA 4.0", "Malabar_Trogon_(Harpactes_fasciatus)_03.jpg"],
+  ["Indian paradise flycatcher with long white tail", "Hari K Patibanda", "CC BY 2.0", "A_Beautiful_male_Indian_Paradise_Flycatcher_in_full_breeding_plumage_(50896595143).jpg"],
+  ["Indian leopard stepping out between rocks", "Tisha Mukherjee", "CC BY-SA 4.0", "Indian_leopard_in_Jawai_Bandh_April_2025_by_Tisha_Mukherjee_16.jpg"],
+  ["Grey langur in Bhimashankar Wildlife Sanctuary", "Nikhil More", "CC BY-SA 4.0", "Gray_langurs_Bhimashankar_wildlife_sanctuary,_Pune,_India_(1)_06.jpg"],
+  ["Malabar pit viper coiled on a branch at night", "Shiv's fotografia", "CC BY-SA 4.0", "Malabar_Pit_Viper_(Craspedocephalus_malabaricus)_03.jpg"],
+  ["Malabar gliding frog on a banana flower", "Manojiritty", "CC BY-SA 4.0", "Malabar_gliding_frog_@_iritty.jpg"],
+  ["Atlas moth, one of the world's largest moths", "Jeevan Jose, Kerala, India", "CC BY-SA 4.0", "Attacus_taprobanis-Kadavoor-2018-07-13-001.jpg"],
+  ["Blue Mormon, the state butterfly of Maharashtra", "Jeevan Jose, Kerala, India", "CC BY-SA 4.0", "Papilio_polymnestor-Kadavoor-2016-07-27-002.jpg"],
+  ["Karvi (Strobilanthes callosa) in bloom", "Dinesh Valke from Thane, India", "CC BY-SA 2.0", "Strobilanthes_callosa_Nees_(52455952701).jpg"],
+  ["Ceropegia flower, a rare Western Ghats vine", "Davidvraju", "CC BY-SA 4.0", "Ceropegia_fantastica_(2).jpg"],
+  ["Aerides maculosa, a wild orchid of the Sahyadri", "Dinesh Valke from Thane, India", "CC BY-SA 2.0", "Aerides_maculosa_Lindl._(3623793873).jpg"],
+  ["Fireflies lighting up a forest at dusk", "MicheleIlluzzi", "CC BY-SA 4.0", "Dancing_golden_threads.jpg"],
+  ["Bioluminescent Mycena mushrooms glowing green", "Joseph Pallante", "CC BY-SA 4.0", "Bioluminescent_Mycena_roseoflava.jpg"],
+  ["Moss-covered stones in a sacred grove (devrai), Junnar", "Nikhil More", "CC BY-SA 4.0", "Durgawadi_ambe_hatvij,_Junnar,_pune_(2)_06.jpg"],
+  ["Hillside of evergreen forest felled and cleared", "Saurabhsawantphoto", "CC BY-SA 4.0", "SaurabhSawant_EvergreenForestTreeFelling_ArunachalPradesh_India_IMG_5967.jpg"],
+  ["Uprooted tree stumps where forest once stood", "Nandini Velho", "CC BY-SA 3.0", "Deforestation_around_Pakke_Tiger_Reserve,_India.JPG"],
+  ["Pumped-storage reservoir cut into a mountaintop", "Jendrusk", "CC BY-SA 4.0", "Pumped-storage_hydroelectricity_%C5%BBar_aerial_1.jpg"],
 ];
 $("#credits").innerHTML = CREDITS.map(([t, a, l, f]) =>
-  `<li><a href="https://commons.wikimedia.org/wiki/File:${encodeURIComponent(f)}" target="_blank" rel="noopener">${t}</a> — ${a}, ${l}</li>`).join("") +
+  `<li><a href="https://commons.wikimedia.org/wiki/File:${f.includes("%") ? f : encodeURIComponent(f)}" target="_blank" rel="noopener">${t}</a> — ${a}, ${l}</li>`).join("") +
   `<li><a href="https://commons.wikimedia.org/wiki/File:From_the_mountain_high,_the_forest_stretches_like_a_green_ocean,_kissed_by_mist_and_rain_%E2%80%94_a_silent_breath_of_nature,_and_continue_with_move_on.webm" target="_blank" rel="noopener">${MR ? "पश्चिम घाट — व्हिडिओ" : "Western Ghats — video"}</a> &amp; <a href="https://commons.wikimedia.org/wiki/File:Wandering_through_the_greenish_forest,_I_follow_an_unknown_path_where_every_leaf_hides_a_secret_and_every_step_feels_like_discovery.webm" target="_blank" rel="noopener">${MR ? "जंगलातील पायवाट" : "forest path"}</a> — Mathanprasath K, CC BY 4.0</li>` +
-  `<li>${MR ? "सर्व छायाचित्रे Wikimedia Commons वरून, आकार बदलून. परवाना" : "All via Wikimedia Commons, resized. Licences"}: <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</li>` +
+  `<li>${MR ? "सर्व छायाचित्रे Wikimedia Commons वरून, आकार बदलून. काजवे, चमकणारी बुरशी, तोडलेला डोंगर आणि डोंगरमाथ्यावरचा जलाशय यांची छायाचित्रे इतर ठिकाणची, उदाहरण म्हणून. परवाना" : "All via Wikimedia Commons, resized. Photos of fireflies, glowing fungi, the felled hillside and the hilltop reservoir are from elsewhere and shown as examples. Licences"}: <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</li>` +
   `<li>${MR ? "YouTube चित्रफिती त्यांच्या निर्मात्यांच्या: kelvin santarita, Maharashtra Forest, Daily life, DocTourer Shashvat, Akash Thakur, Kaivalya_yatri, Calm Wilderness, Saam TV, Mumbai Tak, BolBhidu, ABP Majha, Lokmat, Aaj Tak." : "YouTube films belong to their creators: kelvin santarita, Maharashtra Forest, Daily life, DocTourer Shashvat, Akash Thakur, Kaivalya_yatri, Calm Wilderness, Saam TV, Mumbai Tak, BolBhidu, ABP Majha, Lokmat, Aaj Tak."}</li>`;
 
 /* ---------- reveal + counters ---------- */
@@ -53,6 +82,7 @@ const pars = $$("[data-par]"), heroIn = $(".hero-in");
 const hs = $("#life"), track = $(".hs-track");
 const zones = $$(".gl-zone");
 const mbar = $(".mbar");
+const spImgs = $$(".sp").map(sp => [sp, sp.querySelector("img")]).filter(x => x[1]);
 const steps = $$(".cstep"), count = $("#treeCount"), bar = $("#treeBar");
 const TREES = 32000;
 let lastStep = -1;
@@ -82,7 +112,6 @@ function onScroll() {
   const ht = local($("#hero"));
   heroIn.style.opacity = clamp(1 - ht * 2.2).toFixed(3);
   heroIn.style.transform = `translateY(${(-ht * 120).toFixed(1)}px)`;
-  heroIn.style.filter = `blur(${(ht * 10).toFixed(1)}px)`;
 
   // bottom "sign" bar on phones: show after the hero, hide once the form is on screen
   const sr = $("#sign").getBoundingClientRect();
@@ -93,8 +122,7 @@ function onScroll() {
   const hp = local(hs);
   const dist = track.scrollWidth - innerWidth + 40;
   track.style.transform = `translate3d(${(-hp * dist).toFixed(1)}px,0,0)`;
-  $$(".sp", track).forEach(sp => {            // image inside each card pans against the motion
-    const img = sp.querySelector("img"); if (!img) return;
+  spImgs.forEach(([sp, img]) => {            // image inside each card pans against the motion
     const r = sp.getBoundingClientRect(); const c = (r.left + r.width / 2) / innerWidth - 0.5;
     img.style.objectPosition = `${50 + c * 30}% 50%`;
   });
@@ -236,14 +264,18 @@ $$(".reel li").forEach(li => li.addEventListener("click", () => {
 // real Bhimashankar drone footage as a muted, looping background (loads only when near)
 const calm = matchMedia("(prefers-reduced-motion: reduce)").matches || navigator.connection?.saveData;
 const bgObs = new IntersectionObserver(es => es.forEach(e => {
-  if (!e.isIntersecting || calm) return;
-  const el = e.target, id = el.dataset.yt; bgObs.unobserve(el);
+  const el = e.target, id = el.dataset.yt;
+  if (calm) return;
+  if (!e.isIntersecting) {                     // scrolled away: drop the player so it stops decoding video
+    el.classList.remove("on"); el.querySelector("iframe")?.remove(); return;
+  }
+  if (el.querySelector("iframe")) return;
   const f = document.createElement("iframe");
   f.src = ytSrc(id, `&mute=1&loop=1&playlist=${id}&controls=0&disablekb=1&iv_load_policy=3&start=${el.dataset.start || 0}`);
   f.allow = "autoplay; encrypted-media"; f.tabIndex = -1; f.title = "";
   f.addEventListener("load", () => setTimeout(() => el.classList.add("on"), 1800));
   el.append(f);
-}), { rootMargin: "400px" });
+}), { rootMargin: "150px" });
 $$(".ytbg").forEach(el => bgObs.observe(el));
 
 // local clips: play only while on screen
@@ -252,3 +284,14 @@ const vObs = new IntersectionObserver(es => es.forEach(e => {
   if (e.isIntersecting && !calm) v.play().catch(() => {}); else v.pause();
 }), { threshold: 0.15 });
 $$("video").forEach(v => vObs.observe(v));
+
+/* ---------- photo lightbox ---------- */
+const lb = $("#lb");
+document.addEventListener("click", e => {
+  const f = e.target.closest(".mosaic figure, .sq-gal figure"); if (!f || !lb) return;
+  lb.querySelector("img").src = f.querySelector("img").src;
+  lb.querySelector("p").textContent = f.querySelector("figcaption")?.textContent || "";
+  lb.hidden = false;
+});
+lb?.addEventListener("click", () => { lb.hidden = true; });
+addEventListener("keydown", e => { if (e.key === "Escape" && lb) lb.hidden = true; });

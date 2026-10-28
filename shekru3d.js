@@ -8,10 +8,11 @@ if (host) init(host);
 function init(host) {
   const canvas = host.querySelector("canvas");
   const small = matchMedia("(max-width: 760px)").matches;
-  const SHELLS = small ? 18 : 30;
+  const SHELLS = small ? 10 : 16;
 
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true, powerPreference: "high-performance" });
-  renderer.setPixelRatio(Math.min(devicePixelRatio, small ? 1.75 : 2));
+  let DPR = Math.min(devicePixelRatio, small ? 1.25 : 1.5);
+  renderer.setPixelRatio(DPR);
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
   renderer.toneMappingExposure = 1.15;
@@ -38,7 +39,7 @@ function init(host) {
   function furMaterial({ h, len, density, tail = false }) {
     return new THREE.ShaderMaterial({
       uniforms: { ...shared, uH: { value: h }, uLen: { value: len }, uDen: { value: density } },
-      transparent: h > 0, depthWrite: h === 0, side: THREE.FrontSide,
+      transparent: false, depthWrite: true, side: THREE.FrontSide,
       vertexShader: /* glsl */`
         uniform float uH, uLen, uTime, uSway; attribute vec3 color; attribute float tailT;
         varying vec2 vUv; varying vec3 vN, vC; varying float vT;
@@ -211,7 +212,7 @@ function init(host) {
   const ls = new THREE.Shape(); ls.moveTo(0, 0); ls.quadraticCurveTo(0.16, 0.11, 0.42, 0); ls.quadraticCurveTo(0.16, -0.11, 0, 0);
   const leafGeo = new THREE.ShapeGeometry(ls, 6);
   const leafM = new THREE.MeshStandardMaterial({ color: 0xffffff, side: THREE.DoubleSide, roughness: 0.6 });
-  const LN = small ? 900 : 1800, leaves = new THREE.InstancedMesh(leafGeo, leafM, LN), dummy = new THREE.Object3D(), lc = new THREE.Color();
+  const LN = small ? 600 : 1200, leaves = new THREE.InstancedMesh(leafGeo, leafM, LN), dummy = new THREE.Object3D(), lc = new THREE.Color();
   const clusters = [];
   for (let k = 0; k < 26; k++) { const a = Math.random() * Math.PI * 2, r = 10.5 + Math.random() * 6; clusters.push([Math.cos(a) * r, -1.5 + Math.random() * 7, Math.sin(a) * r, 1.4 + Math.random() * 1.4]); }
   for (let k = 0; k < 10; k++) { const a = Math.random() * Math.PI * 2, r = 3 + Math.random() * 8; clusters.push([Math.cos(a) * r, 7 + Math.random() * 2, Math.sin(a) * r, 1.8]); }
@@ -270,7 +271,7 @@ function init(host) {
 
   const clock = new THREE.Clock(), tmp = new THREE.Vector3();
   const home = new THREE.Vector3(0, 0.05, 0), far = new THREE.Vector3(B2pos.x, B2pos.y + 0.18, B2pos.z);
-  let running = false;
+  let running = false, ft = 0, fn = 0;
   function loop() {
     if (running) return; running = true;
     const tick = () => {
@@ -311,6 +312,7 @@ function init(host) {
 
       motes.rotation.y = t * 0.02; motes.position.y = Math.sin(t * 0.3) * 0.2;
       renderer.render(scene, cam);
+      ft += dt; fn++; if (fn >= 45) { if (ft / fn > 0.028 && DPR > 0.6) { DPR = Math.max(0.6, DPR - 0.25); renderer.setPixelRatio(DPR); resize(); } ft = 0; fn = 0; }
 
       // place hotspot dots
       const r = host.getBoundingClientRect();

@@ -9,7 +9,8 @@ import { OutputPass } from "three/addons/postprocessing/OutputPass.js";
 const canvas = document.getElementById("forest");
 const mobile = matchMedia("(max-width: 760px)").matches;
 const renderer = new THREE.WebGLRenderer({ canvas, antialias: !mobile, powerPreference: "high-performance" });
-renderer.setPixelRatio(Math.min(devicePixelRatio, mobile ? 1.5 : 2));
+let DPR = Math.min(devicePixelRatio, mobile ? 1 : 1.25);
+renderer.setPixelRatio(DPR);
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.0;
 renderer.outputColorSpace = THREE.SRGBColorSpace;
@@ -292,6 +293,17 @@ addEventListener("resize", resize); resize();
 
 const clock = new THREE.Clock();
 let first = true;
+// adaptive quality: if frames are slow, drop resolution, then the glow
+let useBloom = true, ft = 0, fn = 0;
+function perf(dt) {
+  ft += dt; fn++;
+  if (fn < 45) return;
+  const avg = ft / fn; ft = 0; fn = 0;
+  if (avg > 0.028) {
+    if (DPR > 0.7) { DPR = Math.max(0.7, DPR - 0.25); renderer.setPixelRatio(DPR); resize(); }
+    else if (useBloom) useBloom = false;
+  }
+}
 function frame() {
   requestAnimationFrame(frame);
   if (!state.active && !first) return;
@@ -318,7 +330,8 @@ function frame() {
   const ck = first ? 1 : 1 - Math.pow(0.12, dt);
   camPos.lerp(wantPos, ck); camLook.lerp(wantLook, ck);
   camera.position.copy(camPos); camera.lookAt(camLook);
-  composer.render();
+  if (useBloom) composer.render(); else renderer.render(scene, camera);
+  perf(dt);
   if (first) { first = false; document.body.classList.add("gl-ready"); }
 }
 frame();
