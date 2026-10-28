@@ -1,1 +1,3 @@
 .DS_Store
+apps-script/Code.with-secret.gs
+counter/.wrangler/

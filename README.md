@@ -19,4 +19,4 @@ To link a real petition (Change.org / Google Form), set `PETITION_URL` at the to
 
 Run locally: `python3 -m http.server` and open http://localhost:8000.
 
-Made with ♥ by [Prateek Kanurkar](https://github.com/KanurkarPrateek).
+Made with ♥ for the Sahyadri by शिवरायांचा एक जागरूक मावळा.

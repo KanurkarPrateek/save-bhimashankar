@@ -2,6 +2,8 @@
 
 // Paste a Change.org / Google Form link here and the Sign button will open it.
 const PETITION_URL = "";
+// Cloudflare Worker that counts visitors and securely forwards signatures to the Google Sheet (see counter/)
+const COUNTER_URL = "https://bhimashankar-counter.prateekkanurkar.workers.dev";
 const LANG = document.documentElement.lang === "en" ? "en" : "mr";
 const MR = LANG === "mr";
 const SITE_URL = location.origin + location.pathname.replace(/en\/(index\.html)?$/, "");
@@ -227,11 +229,41 @@ ${d.city}${d.email ? "\n" + d.email : ""}
 
 (${SITE_URL})`;
 }
-form.addEventListener("submit", e => {
+const ERR = {
+  human: ["कृपया ‘मी माणूस आहे’ ही तपासणी पूर्ण करा.", "Please complete the human check."],
+  slow: ["एकाच ठिकाणाहून खूप सह्या आल्या आहेत. थोड्या वेळाने पुन्हा प्रयत्न करा.", "Too many signatures from here. Please try again a little later."],
+  email: ["ईमेल पत्ता तपासा.", "Please check the email address."],
+  fields: ["नाव आणि शहर/गाव भरा.", "Please fill in your name and city."],
+  net: ["सही नोंदवता आली नाही. इंटरनेट तपासून पुन्हा प्रयत्न करा.", "Couldn't record your signature. Check your connection and try again."],
+};
+// human check: Cloudflare Turnstile (its always-pass test key on localhost)
+const tsBox = $(".cf-turnstile", form);
+window.tsReady = () => window.turnstile.render(tsBox, {
+  sitekey: /^(localhost|127\.)/.test(location.hostname) ? "1x00000000000000000000AA" : tsBox.dataset.sitekey,
+  theme: "dark", size: "flexible", language: MR ? "mr" : "en",
+});
+document.head.append(Object.assign(document.createElement("script"), { src: "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=tsReady", async: true }));
+const errBox = $(".form-err", form), submitBtn = $("button[type=submit]", form);
+function showSigns(n) { if (!n) return; $$("[data-signs]").forEach(b => b.textContent = fmt(n)); $$(".visits.signs").forEach(v => v.hidden = false); }
+fetch(COUNTER_URL + "/signs").then(r => r.json()).then(j => showSigns(j.count)).catch(() => {});
+
+form.addEventListener("submit", async e => {
   e.preventDefault();
   const d = Object.fromEntries(new FormData(form).entries());
   for (const k in d) d[k] = String(d[k]).trim();
   if (!d.name || !d.city) return;
+  errBox.hidden = true;
+  const token = d["cf-turnstile-response"] || "";
+  submitBtn.disabled = true; const label = submitBtn.textContent; submitBtn.textContent = MR ? "नोंदवत आहे…" : "Signing…";
+  let res;
+  try {
+    res = await fetch(COUNTER_URL + "/sign", { method: "POST", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name: d.name, city: d.city, email: d.email, why: d.why, website: d.website, lang: LANG, token }) }).then(r => r.json());
+  } catch { res = { ok: false, error: "net" }; }
+  submitBtn.disabled = false; submitBtn.textContent = label;
+  window.turnstile?.reset();
+  if (!res.ok) { errBox.textContent = (ERR[res.error] || ERR.net)[MR ? 0 : 1]; errBox.hidden = false; return; }
+  showSigns(res.count);
   const body = letter(d), subj = MR ? "सैदोंगर (कर्जत) येथील वृक्षतोडीची स्थगिती कायम ठेवा" : "Keep the pause on tree felling at Saidongar, Karjat";
   $("#sName").textContent = d.name.split(" ")[0];
   $("#shMail").href = `mailto:?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
@@ -328,7 +360,7 @@ if (sqp) {
 }
 
 /* ---------- visitor counter (Cloudflare Worker + D1, see counter/) ---------- */
-const COUNTER = "https://bhimashankar-counter.prateekkanurkar.workers.dev";
+const COUNTER = COUNTER_URL;
 (async () => {
   const local = /^(localhost|127\.|192\.168\.)/.test(location.hostname);
   let seen = false; try { seen = !!localStorage.getItem("sb_seen"); } catch {}
