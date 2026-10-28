@@ -240,7 +240,7 @@ const ERR = {
 const tsBox = $(".cf-turnstile", form);
 window.tsReady = () => window.turnstile.render(tsBox, {
   sitekey: /^(localhost|127\.)/.test(location.hostname) ? "1x00000000000000000000AA" : tsBox.dataset.sitekey,
-  theme: "dark", size: "flexible", language: MR ? "mr" : "en",
+  theme: "dark", size: "flexible", language: "auto",
 });
 document.head.append(Object.assign(document.createElement("script"), { src: "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=tsReady", async: true }));
 const errBox = $(".form-err", form), submitBtn = $("button[type=submit]", form);
