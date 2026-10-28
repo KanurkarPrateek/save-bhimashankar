@@ -57,92 +57,98 @@
       }));
     }
 
-    /* ---------- schematic location map ---------- */
+    /* ---------- location map: satellite relief + OpenStreetMap rivers and sanctuary ---------- */
     const mp = document.getElementById("map");
     if (mp) {
-      const W = 400, H = 420;
-      const proj = d3.geoMercator().fitExtent([[10, 10], [W - 10, H - 10]], {
-        type: "MultiPoint", coordinates: [[72.78, 19.36], [74.0, 18.42]],
-      });
-      const P = ([lat, lon]) => proj([lon, lat]);
-      const svg = d3.select(mp);
-      const line = d3.line().curve(d3.curveCatmullRom.alpha(0.5));
-      const closed = d3.line().curve(d3.curveCatmullRomClosed.alpha(0.5));
-
+      const root = document.querySelector('link[rel=stylesheet][href*="style.css"]').href.replace(/style\.css.*$/, "");
+      fetch(root + "data/map.json").then(r => r.json()).then(M => drawMap(mp, M, root)).catch(() => {});
+    }
+    function drawMap(mp, M, root) {
+      const svg = d3.select(mp), P = M.pts, line = d3.line().curve(d3.curveCatmullRom.alpha(0.5));
+      const site = [(P.upper[0] + P.lower[0]) / 2, (P.upper[1] + P.lower[1]) / 2];
+      const g = svg.append("g");
       const defs = svg.append("defs");
-      const lg = defs.append("linearGradient").attr("id", "seaG").attr("x1", 0).attr("x2", 1);
-      lg.append("stop").attr("offset", 0).attr("stop-color", "#0d2a3a"); lg.append("stop").attr("offset", 1).attr("stop-color", "#0b1a14");
-      const rg = defs.append("radialGradient").attr("id", "sancG");
-      rg.append("stop").attr("offset", 0).attr("stop-color", "#9be07a").attr("stop-opacity", .55); rg.append("stop").attr("offset", 1).attr("stop-color", "#3f7a3a").attr("stop-opacity", .25);
+      const f = defs.append("filter").attr("id", "mGlow").attr("x", "-50%").attr("y", "-50%").attr("width", "200%").attr("height", "200%");
+      f.append("feGaussianBlur").attr("stdDeviation", 4).attr("result", "b");
+      const fm = f.append("feMerge"); fm.append("feMergeNode").attr("in", "b"); fm.append("feMergeNode").attr("in", "SourceGraphic");
 
-      svg.append("rect").attr("width", W).attr("height", H).attr("fill", "#0b1a12").attr("rx", 14);
-      // land is the default; the sea is drawn to the left of a rough coastline
-      const coast = [[19.4, 72.79], [19.27, 72.79], [19.18, 72.81], [19.08, 72.82], [18.97, 72.80], [18.9, 72.81], [18.85, 72.9], [18.78, 72.92], [18.65, 72.88], [18.5, 72.93], [18.38, 72.96]].map(P);
-      svg.append("path").attr("d", line(coast) + `L0,${H} L0,0 Z`).attr("fill", "url(#seaG)");
-      svg.append("path").attr("d", line(coast)).attr("fill", "none").attr("stroke", "#4c8fb0").attr("stroke-opacity", .5);
-      svg.append("text").attr("class", "m-sea").attr("x", 22).attr("y", H * 0.55).text(T("अरबी समुद्र", "Arabian Sea")).attr("transform", `rotate(-90 22 ${H * 0.55})`);
+      g.append("image").attr("href", root + "img/map-sat.jpg").attr("width", M.w).attr("height", M.h).attr("class", "m-sat");
+      g.append("rect").attr("width", M.w).attr("height", M.h).attr("class", "m-tint");
 
-      // Sahyadri escarpment
-      const ghat = [[19.4, 73.66], [19.25, 73.6], [19.12, 73.52], [19.0, 73.47], [18.88, 73.42], [18.75, 73.4], [18.6, 73.42], [18.4, 73.48]].map(P);
-      svg.append("path").attr("d", line(ghat)).attr("class", "m-ghat");
-      const gl = P([18.66, 73.43]);
-      svg.append("text").attr("class", "m-lbl ghat").attr("x", gl[0] + 6).attr("y", gl[1]).text(T("सह्याद्री कडा", "Sahyadri escarpment"));
-      svg.append("text").attr("class", "m-zone").attr("x", P([18.62, 73.1])[0]).attr("y", P([18.62, 73.1])[1]).text(T("कोकण", "KONKAN"));
-      svg.append("text").attr("class", "m-zone").attr("x", P([18.75, 73.75])[0]).attr("y", P([18.75, 73.75])[1]).text(T("देश / पठार", "DECCAN"));
+      const sanc = g.append("g");
+      M.sanc.forEach(r => sanc.append("path").attr("d", "M" + r.join("L") + "Z").attr("class", "m-sanc"));
+      const rv = g.append("g");
+      const rivers = [["ulhas", ""], ["bhima", ""], ["pej", " hot"]];
+      rivers.forEach(([k, c]) => M[k].forEach(seg => rv.append("path").attr("d", line(seg)).attr("class", "m-river" + c)));
 
-      // sanctuary (approximate outline)
-      const sanc = [[19.17, 73.55], [19.14, 73.61], [19.07, 73.6], [19.0, 73.57], [18.98, 73.51], [19.03, 73.47], [19.1, 73.48], [19.15, 73.5]].map(P);
-      const sp = svg.append("path").attr("d", closed(sanc)).attr("fill", "url(#sancG)").attr("stroke", "#9be07a").attr("stroke-width", 1.2).attr("stroke-dasharray", "3 3");
+      // official distance between the project and the sanctuary
+      const dist = g.append("path").attr("d", `M${site[0]},${site[1]}L${M.near[0]},${M.near[1]}`).attr("class", "m-dist");
 
-      // rivers
-      const rivers = [
-        { c: [[18.83, 73.4], [18.88, 73.36], [18.91, 73.32], [18.98, 73.31], [19.05, 73.31], [19.15, 73.26], [19.22, 73.16], [19.24, 73.1], [19.25, 73.02]], n: T("उल्हास", "Ulhas"), at: 5 },
-        { c: [[19.05, 73.48], [19.0, 73.44], [18.97, 73.4], [18.94, 73.36], [18.93, 73.33]], n: T("पेज", "Pej"), at: 1, hot: true },
-        { c: [[19.07, 73.55], [19.04, 73.62], [18.98, 73.7], [18.95, 73.8], [18.9, 73.9], [18.86, 74.0]], n: T("भीमा", "Bhima"), at: 3 },
-      ];
-      const rv = svg.append("g");
-      rivers.forEach(r => {
-        const pts = r.c.map(P);
-        const path = rv.append("path").attr("d", line(pts)).attr("class", "m-river" + (r.hot ? " hot" : ""));
-        const L = path.node().getTotalLength();
-        path.attr("stroke-dasharray", `${L} ${L}`).attr("stroke-dashoffset", L).attr("data-l", L);
-        const q = pts[r.at];
-        rv.append("text").attr("class", "m-riv").attr("x", q[0] + 5).attr("y", q[1] - 4).text(r.n);
-      });
+      const L = g.append("g"), labels = [];
+      const lab = (x, y, t, cls, anchor = "start") => { const el = L.append("text").attr("x", x).attr("y", y).attr("class", "m-lbl " + (cls || "")).attr("text-anchor", anchor).text(t); labels.push(el); return el; };
+      const towns = [["mumbai", T("मुंबई", "Mumbai"), "big"], ["thane", T("ठाणे", "Thane")], ["kalyan", T("कल्याण", "Kalyan")], ["badlapur", T("बदलापूर", "Badlapur")], ["neral", T("नेरळ", "Neral")], ["karjat", T("कर्जत", "Karjat"), "big"], ["lonavala", T("लोणावळा", "Lonavala")], ["pune", T("पुणे", "Pune"), "big"]];
+      const dots = L.append("g");
+      const leftOf = { karjat: 1, mumbai: 0 };
+      towns.forEach(([k, t, c]) => { dots.append("circle").attr("cx", P[k][0]).attr("cy", P[k][1]).attr("class", "m-town" + (c ? " big" : "")); const el = lab(P[k][0], P[k][1], t, c, leftOf[k] ? "end" : "start").attr("data-dx", leftOf[k] ? -1 : 1); });
+      dots.append("circle").attr("cx", P.temple[0]).attr("cy", P.temple[1]).attr("class", "m-temple");
+      const sl = lab(P.temple[0], P.temple[1], T("भीमाशंकर अभयारण्य", "Bhimashankar sanctuary"), "sanc").attr("data-dy", -1.3);
+      lab(P.temple[0], P.temple[1], T("ज्योतिर्लिंग मंदिर", "Jyotirlinga temple"), "sm").attr("data-dx", 1);
+      const pej = M.pej[0][Math.floor(M.pej[0].length * 0.55)];
+      lab(pej[0], pej[1], T("पेज नदी", "Pej river"), "riv hot").attr("data-dx", 0.6);
+      const ul = M.ulhas[0][Math.floor(M.ulhas[0].length * 0.55)];
+      lab(ul[0], ul[1], T("उल्हास नदी", "Ulhas river"), "riv").attr("data-dx", 0.6);
+      const bh = M.bhima[0][Math.floor(M.bhima[0].length * 0.25)];
+      lab(bh[0], bh[1], T("भीमा नदी", "Bhima river"), "riv").attr("data-dy", 1.4);
+      const mid = [(site[0] + M.near[0]) / 2, (site[1] + M.near[1]) / 2];
+      const dl = lab(mid[0], mid[1], T("अधिकृत अंतर ≈ १५.५ किमी", "official distance ≈ 15.5 km"), "dist").attr("data-dx", 0.7);
 
-      // towns
-      const towns = [
-        [19.076, 72.877, T("मुंबई", "Mumbai"), "big"], [19.218, 72.978, T("ठाणे", "Thane")], [19.243, 73.135, T("कल्याण", "Kalyan")],
-        [19.155, 73.265, T("बदलापूर", "Badlapur")], [18.91, 73.325, T("कर्जत", "Karjat")], [18.754, 73.405, T("लोणावळा", "Lonavala")], [18.52, 73.857, T("पुणे", "Pune"), "big"],
-      ];
-      const tg = svg.append("g");
-      towns.forEach(([la, lo, n, big]) => {
-        const [x, y] = P([la, lo]);
-        tg.append("circle").attr("cx", x).attr("cy", y).attr("r", big ? 4.5 : 3).attr("class", "m-town");
-        tg.append("text").attr("x", x + 7).attr("y", y + 4).attr("class", "m-lbl" + (big ? " big" : "")).text(n);
-      });
+      // project site
+      const sg = g.append("g").attr("class", "m-site").attr("transform", `translate(${site[0]},${site[1]})`);
+      sg.append("circle").attr("class", "ring2"); sg.append("circle").attr("class", "ring2 b"); sg.append("circle").attr("class", "core");
+      lab(site[0], site[1], T("प्रकल्प जागा · सैदोंगर / ढाक", "Project site · Saidongar / Dhak"), "site").attr("data-dx", 1.4).attr("data-dy", 1.5);
+      lab(site[0], site[1], T("३२,४९० झाडे · २३३ हेक्टर", "32,490 trees · 233 ha"), "sm").attr("data-dx", 1.4).attr("data-dy", 2.8);
 
-      // temple + project site
-      const [tx, ty] = P([19.0717, 73.5357]);
-      svg.append("text").attr("x", tx).attr("y", ty + 4).attr("text-anchor", "middle").attr("class", "m-ico").text("🛕");
-      svg.append("text").attr("x", tx + 10).attr("y", ty - 12).attr("class", "m-lbl sanc").text(T("भीमाशंकर अभयारण्य", "Bhimashankar sanctuary"));
-      const [sx, sy] = P([18.975, 73.415]);
-      const site = svg.append("g").attr("class", "m-site").attr("transform", `translate(${sx},${sy})`);
-      site.append("circle").attr("r", 16).attr("class", "ring2");
-      site.append("circle").attr("r", 16).attr("class", "ring2 b");
-      site.append("circle").attr("r", 6).attr("class", "core");
-      const lab = svg.append("g").attr("transform", `translate(${sx - 20},${sy - 30})`);
-      lab.append("text").attr("class", "m-lbl site").attr("text-anchor", "end").text(T("प्रकल्प जागा (अंदाजे)", "Project site (approx.)"));
-      lab.append("text").attr("class", "m-lbl sm").attr("text-anchor", "end").attr("y", 15).text(T("सैदोंगर · ३२,०००+ झाडं", "Saidongar · 32,000+ trees"));
+      // scale bar and edge pointers (used when the phone view crops Mumbai and Pune out)
+      const sb = g.append("g"), edge = g.append("g");
+      const credit = g.append("text").attr("class", "m-cr");
 
-      // scale bar: 10 km
-      const a = P([18.47, 73.62]), b = proj([73.62 + 10 / (111.32 * Math.cos(18.47 * Math.PI / 180)), 18.47]);
-      svg.append("path").attr("d", `M${a[0]},${a[1]} H${b[0]}`).attr("stroke", "#a9b8a3").attr("stroke-width", 2);
-      svg.append("text").attr("x", (a[0] + b[0]) / 2).attr("y", a[1] - 6).attr("text-anchor", "middle").attr("class", "m-lbl sm").text(T("१० किमी", "10 km"));
+      function layout() {
+        const narrow = mp.clientWidth < 620;
+        const vb = narrow ? [350, 40, 760, 860] : [0, 0, M.w, M.h];
+        svg.attr("viewBox", vb.join(" ")).attr("preserveAspectRatio", "xMidYMid slice");
+        const k = vb[2] / Math.max(1, mp.clientWidth);            // viewBox units per screen pixel
+        const fs = 12.5 * k;
+        L.selectAll("text").each(function () {
+          const t = d3.select(this), big = this.classList.contains("big"), sm = this.classList.contains("sm");
+          const size = fs * (big ? 1.18 : sm ? 0.88 : 1);
+          t.style("font-size", size + "px").style("stroke-width", 3.2 * k + "px");
+          const x0 = +t.attr("x"), y0 = +t.attr("y");
+          t.attr("dx", (+t.attr("data-dx") || 0) * 9 * k).attr("dy", ((+t.attr("data-dy") || 0) * size) + size * 0.35);
+        });
+        dots.selectAll("circle").attr("r", function () { return (this.classList.contains("big") ? 4.5 : this.classList.contains("m-temple") ? 5 : 3.2) * k; });
+        sg.selectAll(".core").attr("r", 7 * k); sg.selectAll(".ring2").attr("r", 20 * k);
+        rv.selectAll("path").style("stroke-width", function () { return (this.classList.contains("hot") ? 3.4 : 2) * k + "px"; });
+        sanc.selectAll("path").style("stroke-width", 2 * k + "px");
+        dist.style("stroke-width", 2 * k + "px").style("stroke-dasharray", `${5 * k} ${5 * k}`);
+        // scale bar: 10 km
+        sb.selectAll("*").remove();
+        const bx = vb[0] + vb[2] - 24 * k - M.kmpx * 10, by = vb[1] + vb[3] - 22 * k;
+        sb.append("path").attr("d", `M${bx},${by}h${M.kmpx * 10}`).attr("class", "m-scale").style("stroke-width", 3 * k + "px");
+        sb.append("text").attr("x", bx + M.kmpx * 5).attr("y", by - 8 * k).attr("text-anchor", "middle").attr("class", "m-lbl sm").style("font-size", fs * 0.88 + "px").style("stroke-width", 3 * k + "px").text(T("१० किमी", "10 km"));
+        credit.attr("x", vb[0] + 10 * k).attr("y", vb[1] + vb[3] - 10 * k).style("font-size", 9.5 * k + "px").text("Esri World Imagery · © OpenStreetMap");
+        edge.selectAll("*").remove();
+        if (narrow) {
+          const e = (x, y, t, anchor) => edge.append("text").attr("x", x).attr("y", y).attr("text-anchor", anchor).attr("class", "m-lbl edge").style("font-size", fs + "px").style("stroke-width", 3.2 * k + "px").text(t);
+          e(vb[0] + 10 * k, P.mumbai[1] + 40, T("← मुंबई ~६० किमी", "← Mumbai ~60 km"), "start");
+          e(vb[0] + vb[2] - 10 * k, vb[1] + vb[3] - 48 * k, T("पुणे ~६० किमी →", "Pune ~60 km →"), "end");
+        }
+      }
+      layout();
+      new ResizeObserver(layout).observe(mp);
 
       onView(mp, () => {
-        svg.selectAll(".m-river").transition().duration(2600).delay((d, i) => 300 + i * 500).ease(d3.easeCubicInOut).attr("stroke-dashoffset", 0);
-        sp.attr("opacity", 0).transition().duration(1200).attr("opacity", 1);
+        rv.selectAll("path").each(function () { const L = this.getTotalLength(); d3.select(this).attr("stroke-dasharray", `${L} ${L}`).attr("stroke-dashoffset", L).transition().duration(2600).delay(300).ease(d3.easeCubicInOut).attr("stroke-dashoffset", 0).on("end", function () { d3.select(this).attr("stroke-dasharray", null); }); });
+        sanc.attr("opacity", 0).transition().duration(1200).attr("opacity", 1);
         mp.classList.add("live");
       });
     }
@@ -160,7 +166,7 @@
         const trees = !!chip.dataset.trees;
         let cells;
         if (trees) {
-          const n = 3200, cols = Math.ceil(Math.sqrt(n)), step = S / cols;
+          const n = 3249, cols = Math.ceil(Math.sqrt(n)), step = S / cols;
           cells = d3.range(n).map(i => ({ k: "t" + i, x: O + (i % cols) * step + step / 2, y: O + Math.floor(i / cols) * step + step / 2, s: step, tree: true }));
         } else {
           const u = +chip.dataset.u, side = S * Math.sqrt(u / HA), cols = Math.ceil(S / side), rows = Math.ceil(S / side);
@@ -174,7 +180,7 @@
         en.filter(d => !d.tree).attr("x", d => d.x + 1).attr("y", d => d.y + 1).attr("width", d => Math.max(0.5, d.s - 2)).attr("height", d => Math.max(0.5, d.s - 2)).attr("rx", d => Math.min(4, d.s * 0.12));
         en.filter(d => d.tree).attr("cx", d => d.x).attr("cy", d => d.y).attr("r", d => d.s * 0.38);
         en.transition().duration(500).delay((d, i) => Math.min(1400, i * (trees ? 0.45 : 6))).attr("opacity", 1);
-        const count = trees ? 32000 : Math.round(HA / +chip.dataset.u);
+        const count = trees ? 32490 : Math.round(HA / +chip.dataset.u);
         d3.select(num).transition().duration(900).tween("t", () => { const f = d3.interpolateNumber(0, count); return t => num.textContent = fmt(Math.round(f(t))); });
         lbl.textContent = chip.dataset.l;
       }

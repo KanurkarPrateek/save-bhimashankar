@@ -7,9 +7,13 @@ A phone-first scroll story about Bhimashankar Wildlife Sanctuary, its forests, t
 - `style.css`, `app.js`: styles and scroll engine (parallax, drone footage, species reel, films, petition letter in both languages).
 - `video/`: two CC BY 4.0 Western Ghats clips (Mathanprasath K, Wikimedia Commons). Bhimashankar drone films and news reports are YouTube embeds credited to their creators.
 - `forest.js`: the Three.js 3D plateau (drone flight, felling simulation, regrowth).
-- `shekru3d.js`: the interactive 3D Shekru (furry squirrel on a branch: drag to turn, tap the numbered dots for facts, "leap" button).
-- `issue.js`: D3 pieces in the "What exactly is the issue?" chapter and the numbers chapter: location map, pumped-storage day/evening diagram, 233-ha size comparison, 1,142 plant-species dots.
+- Shekru chapter: a large photo with tap-for-facts dots (positions in `data-x`/`data-y`, % of the photo).
+- `issue.js`: D3 pieces in the "What exactly is the issue?" chapter and the numbers chapter: location map (satellite relief `img/map-sat.jpg` + OpenStreetMap rivers and sanctuary boundary in `data/map.json`), pumped-storage day/evening diagram, 233-ha size comparison, 1,142 plant-species dots.
 - `img/`: photos from Wikimedia Commons (CC BY / CC BY-SA). Credits are in the page footer and `img/credits.json`.
+
+Visitor counter: `counter/` is a Cloudflare Worker + D1 database (`npx wrangler deploy` from that folder). The page calls it once per browser; localhost visits are not counted.
+
+Facts were checked on 28 Oct 2026 against the official project documents (EAC minutes, EC letter, FAC minutes, MPCB summary, ESZ gazette) linked in the footer.
 
 To link a real petition (Change.org / Google Form), set `PETITION_URL` at the top of `app.js`.
 

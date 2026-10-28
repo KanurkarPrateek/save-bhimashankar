@@ -58,8 +58,8 @@ const CREDITS = [
 $("#credits").innerHTML = CREDITS.map(([t, a, l, f]) =>
   `<li><a href="https://commons.wikimedia.org/wiki/File:${f.includes("%") ? f : encodeURIComponent(f)}" target="_blank" rel="noopener">${t}</a> — ${a}, ${l}</li>`).join("") +
   `<li><a href="https://commons.wikimedia.org/wiki/File:From_the_mountain_high,_the_forest_stretches_like_a_green_ocean,_kissed_by_mist_and_rain_%E2%80%94_a_silent_breath_of_nature,_and_continue_with_move_on.webm" target="_blank" rel="noopener">${MR ? "पश्चिम घाट — व्हिडिओ" : "Western Ghats — video"}</a> &amp; <a href="https://commons.wikimedia.org/wiki/File:Wandering_through_the_greenish_forest,_I_follow_an_unknown_path_where_every_leaf_hides_a_secret_and_every_step_feels_like_discovery.webm" target="_blank" rel="noopener">${MR ? "जंगलातील पायवाट" : "forest path"}</a> — Mathanprasath K, CC BY 4.0</li>` +
-  `<li>${MR ? "सर्व छायाचित्रे Wikimedia Commons वरून, आकार बदलून. काजवे, चमकणारी बुरशी, तोडलेला डोंगर आणि डोंगरमाथ्यावरचा जलाशय यांची छायाचित्रे इतर ठिकाणची, उदाहरण म्हणून. परवाना" : "All via Wikimedia Commons, resized. Photos of fireflies, glowing fungi, the felled hillside and the hilltop reservoir are from elsewhere and shown as examples. Licences"}: <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</li>` +
-  `<li>${MR ? "YouTube चित्रफिती त्यांच्या निर्मात्यांच्या: kelvin santarita, Maharashtra Forest, Daily life, DocTourer Shashvat, Akash Thakur, Kaivalya_yatri, Calm Wilderness, Saam TV, Mumbai Tak, BolBhidu, ABP Majha, Lokmat, Aaj Tak." : "YouTube films belong to their creators: kelvin santarita, Maharashtra Forest, Daily life, DocTourer Shashvat, Akash Thakur, Kaivalya_yatri, Calm Wilderness, Saam TV, Mumbai Tak, BolBhidu, ABP Majha, Lokmat, Aaj Tak."}</li>`;
+  `<li>${MR ? "सर्व छायाचित्रे Wikimedia Commons वरून घेतली असून त्यांचा आकार बदलला आहे. काजवे, चमकणारी बुरशी, तोडलेला डोंगर आणि डोंगरमाथ्यावरचा जलाशय यांची छायाचित्रे इतर ठिकाणची असून उदाहरणादाखल दिली आहेत. परवाना" : "All via Wikimedia Commons, resized. Photos of fireflies, glowing fungi, the felled hillside and the hilltop reservoir are from elsewhere and shown as examples. Licences"}: <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</li>` +
+  `<li>${MR ? "YouTube चित्रफितींचे हक्क त्यांच्या निर्मात्यांकडे: kelvin santarita, Maharashtra Forest, Daily life, DocTourer Shashvat, Akash Thakur, Kaivalya_yatri, Calm Wilderness, Saam TV, Mumbai Tak, BolBhidu, ABP Majha, Lokmat, Aaj Tak." : "YouTube films belong to their creators: kelvin santarita, Maharashtra Forest, Daily life, DocTourer Shashvat, Akash Thakur, Kaivalya_yatri, Calm Wilderness, Saam TV, Mumbai Tak, BolBhidu, ABP Majha, Lokmat, Aaj Tak."}</li>`;
 
 /* ---------- reveal + counters ---------- */
 const fmt = n => n.toLocaleString(MR ? "mr-IN" : "en-IN");
@@ -92,7 +92,7 @@ const zones = $$(".gl-zone");
 const mbar = $(".mbar");
 const spImgs = $$(".sp").map(sp => [sp, sp.querySelector("img")]).filter(x => x[1]);
 const steps = $$(".cstep"), count = $("#treeCount"), bar = $("#treeBar");
-const TREES = 32000;
+const TREES = 32490;
 let lastStep = -1;
 
 function local(el) { // 0 at section top hitting viewport top, 1 when its bottom reaches viewport bottom
@@ -182,22 +182,22 @@ const form = $("#petition");
 function letter(d) {
   if (MR) return `प्रति,
 मा. मुख्यमंत्री, महाराष्ट्र शासन
-मा. प्रधान मुख्य वनसंरक्षक (वन्यजीव), महाराष्ट्र
 मा. पर्यावरण व वातावरणीय बदल मंत्री, महाराष्ट्र
+मा. प्रधान मुख्य वनसंरक्षक (वनबल प्रमुख), महाराष्ट्र
 
-विषय: भीमाशंकर वन्यजीव अभयारण्याशेजारील सैदोंगर (कर्जत) येथील वृक्षतोड थांबवण्याबाबत
+विषय: कर्जत तालुक्यातील सैदोंगर येथील वृक्षतोडीची स्थगिती कायम ठेवण्याबाबत
 
 महोदय/महोदया,
 
-रायगड जिल्ह्यातील कर्जत तालुक्यातील सैदोंगर येथे सुमारे २३३ हेक्टर क्षेत्रावरील ३२,००० हून अधिक झाडं ३,००० मेगावॅट पंप्ड स्टोरेज जलविद्युत प्रकल्पासाठी तोडण्यासाठी चिन्हांकित केल्याचं वृत्त आहे. हे जंगल महाराष्ट्राचा राज्यप्राणी शेकरूचं घर असलेल्या भीमाशंकर वन्यजीव अभयारण्याला लागून आहे आणि पेज व उल्हास नद्यांना पाणी देतं.
+रायगड जिल्ह्यातील कर्जत तालुक्यात सैदोंगर (पाली–ढाक परिसर) येथे ३,००० मेगावॅट क्षमतेच्या उदंचन जलविद्युत प्रकल्पासाठी सुमारे २३३ हेक्टर वनजमिनीवरील ३२,४९० झाडे तोडण्यास वनविभागाने परवानगी दिली आहे. हे जंगल पश्चिम घाटात, भीमाशंकर वन्यजीव अभयारण्यापासून सुमारे १५ किमी अंतरावर, त्याच सह्याद्रीच्या कड्यावर आहे. ते पेज आणि उल्हास नद्यांचे पाणलोट क्षेत्र असून उल्हास नदी खालच्या भागातील लाखो लोकांना पिण्याचे पाणी पुरवते.
 
-माझी शासनाला नम्र विनंती आहे की:
-१. राष्ट्रीय हरित लवादाची सुनावणी होईपर्यंत सर्व वृक्षतोड थांबवावी.
-२. पर्यावरण आघात मूल्यांकन, वन्यजीव परिणाम अभ्यास आणि पुनर्वसन आराखडा सार्वजनिक करावा.
-३. पेज–उल्हास खोऱ्यासाठी स्वतंत्र दरड आणि जलसुरक्षा अभ्यास करावा.
-४. वन हक्क कायद्यानुसार ग्रामसभा आणि आदिवासी समुदायांशी सल्लामसलत करावी.
-५. अभयारण्याशेजारील जुनं जंगल नष्ट न करणाऱ्या पर्यायी जागांचा विचार करावा.
-${d.why ? `\nहे माझ्यासाठी का महत्त्वाचं आहे: ${d.why}\n` : ""}
+तरी शासनाने पुढील बाबींवर कार्यवाही करावी, ही नम्र विनंती:
+१. सर्व अभ्यास सार्वजनिक होईपर्यंत आणि कोणत्याही कायदेशीर आव्हानाची सुनावणी होईपर्यंत सैदोंगर येथील वृक्षतोडीची सध्याची स्थगिती कायम ठेवावी.
+२. संपूर्ण पर्यावरणीय आघात मूल्यांकन अहवाल, वृक्षगणना यादी, मंजूर वन्यजीव संवर्धन आराखडा, वनमंजुरीचे आदेश आणि वन हक्क कायद्यानुसार घेतलेल्या ग्रामसभा संमती सार्वजनिक कराव्यात.
+३. पेज–उल्हास खोऱ्यातील दरडींचा धोका, जलसुरक्षा आणि परिसरातील सर्व उदंचन प्रकल्पांचे एकत्रित परिणाम यांचा स्वतंत्र अभ्यास करवून घ्यावा.
+४. वन हक्क कायद्यानुसार बाधित गावांच्या ग्रामसभा आणि आदिवासी समुदायांशी प्रत्यक्ष सल्लामसलत करावी.
+५. पश्चिम घाटातील राखीव जंगल नष्ट करावे लागणार नाही, अशा पर्यायी जागांचा किंवा क्लोज्ड-लूप रचनेचा विचार करावा.
+${d.why ? `\nहे माझ्यासाठी का महत्त्वाचे आहे: ${d.why}\n` : ""}
 आपला/आपली विश्वासू,
 ${d.name}
 ${d.city}${d.email ? "\n" + d.email : ""}
@@ -205,21 +205,21 @@ ${d.city}${d.email ? "\n" + d.email : ""}
 (${SITE_URL})`;
   return `To,
 The Chief Minister, Government of Maharashtra
-The Principal Chief Conservator of Forests (Wildlife), Maharashtra
 The Minister of Environment and Climate Change, Maharashtra
+The Principal Chief Conservator of Forests (Head of Forest Force), Maharashtra
 
-Subject: Pause tree felling at Saidongar (Karjat) next to Bhimashankar Wildlife Sanctuary
+Subject: Keep the pause on tree felling at Saidongar, Karjat taluka
 
 Respected Sir/Madam,
 
-More than 32,000 trees across about 233 hectares at Saidongar, Karjat taluka, Raigad, are reportedly marked for felling for a 3,000 MW pumped-storage hydropower project. This forest borders the Bhimashankar Wildlife Sanctuary, home of Maharashtra's state animal, the Shekru, and feeds the Pej and Ulhas rivers.
+The Forest Department has permitted the felling of 32,490 trees on about 233 hectares of forest land at Saidongar (Pali–Dhak area), Karjat taluka, Raigad, for a 3,000 MW pumped-storage hydropower project. This forest lies in the Western Ghats, on the same Sahyadri escarpment as the Bhimashankar Wildlife Sanctuary, about 15 km from it. It is the catchment of the Pej and Ulhas rivers, and the Ulhas supplies drinking water to millions downstream.
 
 I request the Government to:
-1. Pause all felling until the National Green Tribunal hears the matter.
-2. Publish the Environmental Impact Assessment, wildlife-impact study and rehabilitation plan.
-3. Order an independent landslide and water-security study for the Pej–Ulhas valley.
-4. Consult gram sabhas and Adivasi communities as required under the Forest Rights Act.
-5. Consider alternative sites that do not sacrifice old forest next to a sanctuary.
+1. Keep the current pause on felling at Saidongar until the studies are public and any legal challenge is heard.
+2. Publish the full EIA, the tree-enumeration list, the approved Wildlife Conservation Plan, the forest-clearance orders and the gram-sabha consents under the Forest Rights Act.
+3. Order an independent study of landslide risk, water security and the cumulative impact of all pumped-storage projects in the Pej–Ulhas valley.
+4. Consult the gram sabhas of the affected villages and Adivasi communities in person, as the Forest Rights Act requires.
+5. Consider alternative sites or a closed-loop design that do not sacrifice Western Ghats reserved forest.
 ${d.why ? `\nWhy this matters to me: ${d.why}\n` : ""}
 Sincerely,
 ${d.name}
@@ -232,14 +232,14 @@ form.addEventListener("submit", e => {
   const d = Object.fromEntries(new FormData(form).entries());
   for (const k in d) d[k] = String(d[k]).trim();
   if (!d.name || !d.city) return;
-  const body = letter(d), subj = MR ? "भीमाशंकर वाचवा: सैदोंगर येथील वृक्षतोड थांबवा" : "Save Bhimashankar: pause tree felling at Saidongar";
+  const body = letter(d), subj = MR ? "सैदोंगर (कर्जत) येथील वृक्षतोडीची स्थगिती कायम ठेवा" : "Keep the pause on tree felling at Saidongar, Karjat";
   $("#sName").textContent = d.name.split(" ")[0];
   $("#shMail").href = `mailto:?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
-  const msg = MR ? `मी भीमाशंकर वाचवण्यासाठी सही केली 🌳 अभयारण्याशेजारी ३२,००० हून अधिक झाडं तोडण्यासाठी चिन्हांकित आहेत. गोष्ट पाहा आणि तुमचं नाव जोडा: ${SITE_URL}`
-    : `I just signed to save Bhimashankar 🌳 32,000+ trees next to the sanctuary are marked to fall. See the story and add your name: ${SITE_URL}`;
+  const msg = MR ? `भीमाशंकर वाचवण्यासाठी मी याचिकेवर सही केली 🌳 सह्याद्रीत, भीमाशंकरपासून सुमारे १५ किमीवर, ३२,४९० झाडे तोडण्याची परवानगी देण्यात आली आहे. गोष्ट पाहा आणि तुमचे नाव जोडा: ${SITE_URL}`
+    : `I just signed to save Bhimashankar 🌳 32,490 trees in the Sahyadri, about 15 km from Bhimashankar, have been cleared for felling. See the story and add your name: ${SITE_URL}`;
   $("#shWa").href = `https://wa.me/?text=${encodeURIComponent(msg)}`;
   $("#shX").href = `https://twitter.com/intent/tweet?text=${encodeURIComponent(msg)}`;
-  $("#shCopy").onclick = async () => { try { await navigator.clipboard.writeText(body); $("#shCopy").textContent = MR ? "कॉपी झालं ✓" : "Copied ✓"; } catch { $("#shCopy").textContent = MR ? "कॉपी झालं नाही" : "Copy failed"; } };
+  $("#shCopy").onclick = async () => { try { await navigator.clipboard.writeText(body); $("#shCopy").textContent = MR ? "कॉपी झाले ✓" : "Copied ✓"; } catch { $("#shCopy").textContent = MR ? "कॉपी झाले नाही" : "Copy failed"; } };
   $(".done", form).hidden = false;
   if (PETITION_URL) window.open(PETITION_URL, "_blank", "noopener");
 });
@@ -304,3 +304,44 @@ document.addEventListener("click", e => {
 });
 lb?.addEventListener("click", () => { lb.hidden = true; });
 addEventListener("keydown", e => { if (e.key === "Escape" && lb) lb.hidden = true; });
+
+/* ---------- Shekru photo with fact dots ---------- */
+const sqp = $("#sqPhoto");
+if (sqp) {
+  const img = $(".sqp-img", sqp), dots = $$(".hs", sqp), card = $(".hs-card", sqp);
+  const POS_X = 0.45; // matches object-position in CSS
+  function place() {
+    const w = sqp.clientWidth, h = sqp.clientHeight, iw = img.naturalWidth || 1600, ih = img.naturalHeight || 1066;
+    const k = Math.max(w / iw, h / ih), ox = (w - iw * k) * POS_X, oy = (h - ih * k) * 0.5;
+    dots.forEach(d => { d.style.transform = `translate(${(ox + iw * k * d.dataset.x / 100).toFixed(1)}px,${(oy + ih * k * d.dataset.y / 100).toFixed(1)}px)`; });
+  }
+  img.complete ? place() : img.addEventListener("load", place);
+  new ResizeObserver(place).observe(sqp);
+  dots.forEach(d => d.addEventListener("click", e => {
+    e.stopPropagation();
+    dots.forEach(o => o.classList.toggle("on", o === d));
+    $("b", card).textContent = d.dataset.t; $("p", card).innerHTML = d.dataset.p;
+    card.classList.add("show");
+  }));
+  card.addEventListener("click", () => { card.classList.remove("show"); dots.forEach(o => o.classList.remove("on")); });
+  sqp.addEventListener("click", e => { if (e.target === img) card.click(); });
+}
+
+/* ---------- visitor counter (Cloudflare Worker + D1, see counter/) ---------- */
+const COUNTER = "https://bhimashankar-counter.prateekkanurkar.workers.dev";
+(async () => {
+  const local = /^(localhost|127\.|192\.168\.)/.test(location.hostname);
+  let seen = false; try { seen = !!localStorage.getItem("sb_seen"); } catch {}
+  try {
+    const r = await fetch(COUNTER + (seen || local ? "/count" : "/hit"), { method: seen || local ? "GET" : "POST" });
+    const { count } = await r.json();
+    if (!seen && !local) try { localStorage.setItem("sb_seen", "1"); } catch {}
+    if (!count) return;
+    $$("[data-visits]").forEach(b => {
+      const t0 = performance.now();
+      const step = now => { const k = clamp((now - t0) / 1600); b.textContent = fmt(Math.round(count * (1 - Math.pow(1 - k, 3)))); if (k < 1) requestAnimationFrame(step); };
+      requestAnimationFrame(step);
+    });
+    $$(".visits").forEach(v => v.hidden = false);
+  } catch {}
+})();

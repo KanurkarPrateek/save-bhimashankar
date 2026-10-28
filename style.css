@@ -698,3 +698,50 @@ html[lang=mr] .track{font-family:var(--mr)}
 html[lang=mr] .band-cap p{font-family:var(--mr)}
 .band-cap span{display:block;margin-top:12px;font-size:12px;color:rgba(255,255,255,.6)}
 @media (min-width:861px){.hscroll{height:640vh}}
+
+/* Shekru photo stage (replaces the 3D model) */
+.sqp{background:#0b1a10;touch-action:auto}
+.sqp-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:45% 50%;max-width:none}
+@keyframes sqpZoom{from{transform:scale(1)}to{transform:scale(1.04)}}
+.sqp .hs{transition:opacity .3s,box-shadow .3s,background .3s}
+.sqp::after{background:linear-gradient(180deg,var(--bg) 0,transparent 12%,transparent 78%,rgba(7,17,11,.9) 100%)}
+.sqp-cr{font-size:11px;color:rgba(255,255,255,.55)}
+.s3d-ui{justify-content:space-between}
+@media (max-width:999px){.sqp{height:auto;min-height:0;aspect-ratio:4/5;max-height:80svh}.s3d-ui{bottom:16px}.hs-card{bottom:56px}}
+@media (min-width:1000px){.sqp .hs-card{bottom:70px}}
+.visits{display:inline-flex;align-items:center;gap:8px;margin-top:16px;padding:7px 14px 7px 10px;border-radius:99px;background:rgba(7,17,11,.45);border:1px solid rgba(238,243,230,.18);font-size:14px;color:#dfe8d7;backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px)}
+.visits[hidden]{display:none}
+.visits b{color:var(--gold);font-variant-numeric:tabular-nums}
+.visits .eye{width:8px;height:8px;border-radius:50%;background:var(--leaf);box-shadow:0 0 0 0 rgba(155,224,122,.6);animation:pulse 1.8s infinite}
+.visits.in-card{margin:0 0 14px;background:rgba(155,224,122,.08)}
+
+/* ---------- satellite location map ---------- */
+.map-grid{grid-template-columns:1fr!important}
+.mapbox{background:#0b1a12;border-radius:18px}
+#map{width:100%;height:auto;aspect-ratio:760/860;display:block}
+@media (min-width:660px){#map{aspect-ratio:1400/1139}}
+.m-sat{filter:saturate(.75) brightness(.62) contrast(1.12)}
+.m-tint{fill:#0a2a14;opacity:.28;mix-blend-mode:multiply}
+.m-sanc{fill:rgba(155,224,122,.2);stroke:#b6f09a;filter:url(#mGlow)}
+.m-river{fill:none;stroke:#62c3f0;stroke-linecap:round;stroke-linejoin:round;opacity:.9}
+.m-river.hot{stroke:#a6ecff;filter:url(#mGlow)}
+.m-dist{fill:none;stroke:#f3cf72;stroke-linecap:round}
+.m-lbl{fill:#eef3e6;font-family:"Mukta",var(--sans);font-weight:500;paint-order:stroke;stroke:rgba(6,14,9,.9);stroke-linejoin:round}
+html[lang=en] .m-lbl{font-family:var(--sans)}
+.m-lbl.big{font-weight:700}
+.m-lbl.sm{fill:#b9c8b2}
+.m-lbl.sanc{fill:#b6f09a;font-weight:700}
+.m-lbl.site{fill:#ffb08f;font-weight:700}
+.m-lbl.riv{fill:#8fd8ff;font-style:italic}
+.m-lbl.riv.hot{fill:#c4f2ff;font-weight:700}
+.m-lbl.dist{fill:#f3cf72;font-weight:600}
+.m-lbl.edge{fill:#dfe8d7;font-weight:600}
+.m-town{fill:#fff;stroke:rgba(0,0,0,.6)}
+.m-temple{fill:var(--gold);stroke:#fff}
+.m-scale{stroke:#eef3e6;stroke-linecap:square}
+.m-cr{fill:rgba(255,255,255,.55);font-family:var(--sans)}
+.visits{align-self:flex-start}
+#hero .hero-in::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(90deg,rgba(7,17,11,.62),rgba(7,17,11,.25) 55%,transparent 80%),linear-gradient(180deg,rgba(7,17,11,.35),transparent 40%)}
+@media (max-width:699px){#hero .hero-in::before{background:linear-gradient(180deg,rgba(7,17,11,.15) 0%,rgba(7,17,11,.55) 35%,rgba(7,17,11,.7) 100%)}}
+.hero-in{z-index:1}
+.kicker,h1 .sm{text-shadow:0 1px 14px rgba(0,0,0,.8)}
