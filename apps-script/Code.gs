@@ -1,3 +1,4 @@
+/** @OnlyCurrentDoc */
 /**
  * Save Bhimashankar — petition signatures into this Google Sheet.
  *
