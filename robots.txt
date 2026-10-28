@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /counter/
+Disallow: /apps-script/
+Disallow: /src/
+
+Sitemap: https://bhimashankar.katyar.com/sitemap.xml
